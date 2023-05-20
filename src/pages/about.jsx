@@ -41,10 +41,10 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About - Spencer Sharp</title>
+        <title>About - Robbie Wagner</title>
         <meta
           name="description"
-          content="I’m Spencer Sharp. I live in New York City, where I design the future."
+          content="I’m Robbie Wagner. I live in New York City, where I design the future."
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
@@ -61,7 +61,7 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Spencer Sharp. I live in New York City, where I design the
+              I’m Robbie Wagner. I live in New York City, where I design the
               future.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
@@ -95,7 +95,10 @@ export default function About() {
           </div>
           <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href="#" icon={TwitterIcon}>
+              <SocialLink
+                href="https://twitter.com/RobbieTheWagner"
+                icon={TwitterIcon}
+              >
                 Follow on Twitter
               </SocialLink>
               <SocialLink href="#" icon={InstagramIcon} className="mt-4">
