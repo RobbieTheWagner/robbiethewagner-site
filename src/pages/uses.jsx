@@ -85,7 +85,7 @@ export default function Uses() {
               TODO
             </Tool>
             <Tool href="https://opalcamera.com/" title="Opal C1 4k Webcam">
-              If you don't want to spend thousands of dollars on a super fancy
+              If you don’t want to spend thousands of dollars on a super fancy
               camera, but still want to get video results that look like you
               did, look no further than the Opal C1!
             </Tool>
