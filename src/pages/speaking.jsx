@@ -42,17 +42,17 @@ export default function Speaking() {
         <div className="space-y-20">
           <SpeakingSection title="Conferences">
             <Appearance
-              href="#"
-              title="Title"
+              href="https://www.youtube.com/watch?v=Kw0V9HvMpI4"
+              title="Talking to Your Dog with Ember"
               description="Description"
-              event="EmberConf 2019"
+              event="EmberConf 2020"
               cta="Watch video"
             />
             <Appearance
-              href="#"
-              title="Title"
+              href="https://www.youtube.com/watch?v=u5onNDpt8ks"
+              title="Ember Data - It's Not Just for JSON:API Anymore"
               description="Description"
-              event="EmberConf 2018"
+              event="EmberConf 2019"
               cta="Watch video"
             />
           </SpeakingSection>

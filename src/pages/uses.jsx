@@ -1,8 +1,8 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
-import { Card } from '@/components/Card'
-import { Section } from '@/components/Section'
-import { SimpleLayout } from '@/components/SimpleLayout'
+import { Card } from '@/components/Card';
+import { Section } from '@/components/Section';
+import { SimpleLayout } from '@/components/SimpleLayout';
 
 function ToolsSection({ children, ...props }) {
   return (
@@ -11,7 +11,7 @@ function ToolsSection({ children, ...props }) {
         {children}
       </ul>
     </Section>
-  )
+  );
 }
 
 function Tool({ title, href, children }) {
@@ -22,7 +22,7 @@ function Tool({ title, href, children }) {
       </Card.Title>
       <Card.Description>{children}</Card.Description>
     </Card>
-  )
+  );
 }
 
 export default function Uses() {
@@ -71,7 +71,25 @@ export default function Uses() {
             <Tool title="VSCode">TODO</Tool>
             <Tool title="Warp">TODO</Tool>
           </ToolsSection>
-          <ToolsSection title="Podcasting"></ToolsSection>
+          <ToolsSection title="Podcasting">
+            <Tool
+              href="https://www.amazon.com/Electro-Voice-RE20-BLACK-Broadcast-Microphone-RE20/dp/B08P7QTZM5/ref=sxts_rp_s_a_1_0?&_encoding=UTF8&tag=robbiethewagn-20&linkCode=ur2&linkId=47048637966798f88c575f21df7747dc&camp=1789&creative=9325"
+              title="Electro-Voice RE20 Dynamic Broadcast Announcer Microphone"
+            >
+              TODO
+            </Tool>
+            <Tool
+              href="https://www.amazon.com/Audient-EVO-USB-Audio-Interface/dp/B0B279PYDR/ref=sr_1_2?&_encoding=UTF8&tag=robbiethewagn-20&linkCode=ur2&linkId=30d0d8129e56762105427849c5790aa1&camp=1789&creative=9325"
+              title="Audient EVO 16 USB Audio Interface"
+            >
+              TODO
+            </Tool>
+            <Tool href="https://opalcamera.com/" title="Opal C1 4k Webcam">
+              If you don't want to spend thousands of dollars on a super fancy
+              camera, but still want to get video results that look like you
+              did, look no further than the Opal C1!
+            </Tool>
+          </ToolsSection>
           <ToolsSection title="Productivity">
             <Tool title="Alfred">
               It’s not the newest kid on the block but it’s still the fastest.
@@ -97,5 +115,5 @@ export default function Uses() {
         </div>
       </SimpleLayout>
     </>
-  )
+  );
 }
