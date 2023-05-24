@@ -1,19 +1,20 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from 'next/head';
+import Image from 'next/image';
 
-import { Card } from '@/components/Card'
-import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import { Card } from '@/components/Card';
+import { SimpleLayout } from '@/components/SimpleLayout';
+import logoAnimaginary from '@/images/logos/animaginary.svg';
+import logoOpenShuttle from '@/images/logos/open-shuttle.svg';
+import logoSwach from '@/images/logos/swach.svg';
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'Swach',
+    classNames: 'mt-1',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+      'A modern, cross platform color picker written in EmberJS and Electron.',
+    link: { href: 'https://swach.io', label: 'swach.io' },
+    logo: logoSwach,
   },
   {
     name: 'Animaginary',
@@ -29,7 +30,7 @@ const projects = [
     link: { href: '#', label: 'github.com' },
     logo: logoOpenShuttle,
   },
-]
+];
 
 function LinkIcon(props) {
   return (
@@ -39,7 +40,7 @@ function LinkIcon(props) {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }
 
 export default function Projects() {
@@ -66,7 +67,7 @@ export default function Projects() {
                 <Image
                   src={project.logo}
                   alt=""
-                  className="h-8 w-8"
+                  className={`h-8 w-8 ${project.classNames}`}
                   unoptimized
                 />
               </div>
@@ -83,5 +84,5 @@ export default function Projects() {
         </ul>
       </SimpleLayout>
     </>
-  )
+  );
 }
