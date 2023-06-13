@@ -6,7 +6,6 @@ import clsx from 'clsx';
 import { Container } from '@/components/Container';
 import {
   GitHubIcon,
-  InstagramIcon,
   LinkedInIcon,
   TwitterIcon,
 } from '@/components/SocialIcons';
@@ -67,7 +66,7 @@ export default function About() {
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
                 I’ve always loved making things from creating and selling my own
-                mint flavored water in 3rd grade, to playing around with
+                mint flavored water in third grade, to playing around with
                 Photoshop to design shirts, but it was when I started building
                 custom MySpace layouts for bands that I fell in love with the
                 web.
@@ -75,7 +74,26 @@ export default function About() {
 
               <p>
                 For the past {yearsOfWebDev} years, I’ve been learning and
-                building on the web.
+                building on the web. From PHP and jQuery, to EmberJS and
+                Angular, to Svelte, Astro and all the latest hotness, I’ve used
+                it all, but no matter what shiny new frameworks come out, my
+                heart always belongs to Ember.
+              </p>
+
+              <p>
+                In 2017 I turned my passion for Ember into a business and
+                founded an Ember consultancy called Ship Shape. Throughout my
+                time with Ship Shape I worked with many clients including Apple,
+                Netflix, and Expel, and as we grew we expanded into other
+                frameworks like Nuxt and Next.js.
+              </p>
+
+              <p>
+                Today, I work at ART19, an Amazon company, slinging EmberJS and
+                building the next generation of podcast hosting tools. I also
+                cohost Whiskey Web and Whatnot with Charles William Carpenter
+                III and sometimes create videos and blog posts about the tech
+                topic du jour.
               </p>
             </div>
           </div>
@@ -87,9 +105,7 @@ export default function About() {
               >
                 Follow on Twitter
               </SocialLink>
-              <SocialLink href="#" icon={InstagramIcon} className="mt-4">
-                Follow on Instagram
-              </SocialLink>
+
               <SocialLink
                 href="https://github.com/RobbieTheWagner"
                 icon={GitHubIcon}
@@ -97,6 +113,7 @@ export default function About() {
               >
                 Follow on GitHub
               </SocialLink>
+
               <SocialLink
                 href="https://linkedin.com/in/robertwilliamwagner"
                 icon={LinkedInIcon}
@@ -104,6 +121,7 @@ export default function About() {
               >
                 Follow on LinkedIn
               </SocialLink>
+
               <SocialLink
                 href="mailto:spencer@planetaria.tech"
                 icon={MailIcon}
