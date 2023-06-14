@@ -26,17 +26,16 @@ function Tool({ title, href, children }) {
 }
 
 export default function Uses() {
+  const description =
+    'Hardware I code on, software I code with, and other fancy things I use.';
   return (
     <>
       <Head>
         <title>Uses - Robbie Wagner</title>
-        <meta
-          name="description"
-          content="Software I use, gadgets I love, and other things I recommend."
-        />
+        <meta name="description" content={description} />
       </Head>
       <SimpleLayout
-        title="Software I use, gadgets I love, and other things I recommend."
+        title={description}
         intro="I get asked a lot about the things I use to build software, stay productive, or buy to fool myself into thinking I’m being productive when I’m really just procrastinating. Here’s a big list of all of my favorite stuff."
       >
         <div className="space-y-20">
@@ -47,66 +46,92 @@ export default function Uses() {
               single time, even under the incredibly heavy loads I put it
               through with our various launch simulations.
             </Tool>
-            <Tool title="Apple Pro Display XDR (Standard Glass)">
-              The only display on the market if you want something HiDPI and
-              bigger than 27”. When you’re working at planetary scale, every
-              pixel you can get counts.
+
+            <Tool
+              href="https://www.amazon.com/Apple-32-inch-Pro-Display-Retina/dp/B082M1P2ZQ/ref=sr_1_3?crid=97JRN092HJKI&amp;keywords=xdr&amp;qid=1686707795&amp;sprefix=xdr%252Caps%252C89&amp;sr=8-3&amp;ufe=app_do%253Aamzn1.fos.ac2169a1-b668-44b9-8bd0-5ec63b24bcb5&_encoding=UTF8&tag=robbiethewagn-20&linkCode=ur2&linkId=78886a36938f98014a3d32ca6f369e5a&camp=1789&creative=9325"
+              title="Apple Pro Display XDR (Nano-texture Glass)"
+            >
+              Everyone jokes about how much the stand costs, but this display
+              slaps. Best monitor I have ever used, hands down. The nano-texture
+              glass is amazing and it feels like you could reach out and touch
+              the pixels.
             </Tool>
-            <Tool title="IBM Model M SSK Industrial Keyboard">
-              They don’t make keyboards the way they used to. I buy these any
-              time I see them go up for sale and keep them in storage in case I
-              need parts or need to retire my main.
+
+            <Tool
+              href="https://www.amazon.com/Logitech-Wireless-Ergonomic-Keyboard-Wrist/dp/B07ZWK2TQT/ref=sr_1_1_sspa?crid=2PB4HRSEDI8MQ&amp;keywords=logitech+ergo&amp;qid=1686739094&amp;sprefix=logitech+ergo%252Caps%252C87&amp;sr=8-1-spons&amp;ufe=app_do%253Aamzn1.fos.18ed3cb5-28d5-4975-8bc7-93deae8f9840&amp;psc=1&amp;spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExV0hNUVQwUkhVVTEyJmVuY3J5cHRlZElkPUEwMzIwNzQ2MUdYTEIzN1lRWTRUVyZlbmNyeXB0ZWRBZElkPUEwOTczNDI4WjhHWTJEN1hWT1NOJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==&_encoding=UTF8&tag=robbiethewagn-20&linkCode=ur2&linkId=f70c43d3c7643fcff46f2b0ee4e8ef87&camp=1789&creative=9325"
+              title="Logitech ERGO K860 Wireless Ergonomic Keyboard"
+            >
+              This keyboard does a good job at being slightly more ergonomic,
+              while still feeling mostly like a traditional typing experience.
+              It is a quick way to reduce some wrist strain, without the steep
+              learning curve of something like a Kinesis Advantage.
             </Tool>
-            <Tool title="Apple Magic Trackpad">
-              Something about all the gestures makes me feel like a wizard with
-              special powers. I really like feeling like a wizard with special
-              powers.
+
+            <Tool
+              href="https://www.amazon.com/Logitech-Vertical-Wireless-Mouse-Rechargeable/dp/B07FNJB8TT?&_encoding=UTF8&tag=robbiethewagn-20&linkCode=ur2&linkId=3c06eeacb52a64040e1e26e9e6f2aa1a&camp=1789&creative=9325"
+              title="Logitech MX Vertical Wireless Mouse"
+            >
+              Like many developers, or any humans who use computers all day, I
+              have a lot of wrist pain. This Logitech MX vertical mouse helps
+              mitigate some of the pain and I’ll take all the help I can get.
             </Tool>
-            <Tool title="Herman Miller Aeron Chair">
+
+            <Tool
+              href="https://www.amazon.com/Herman-Miller-Aeron-Chair-Graphite/dp/B01N0ZUN15/ref=sr_1_6?keywords=herman+miller+aeron&amp;qid=1686707683&amp;sr=8-6&amp;ufe=app_do%253Aamzn1.fos.ac2169a1-b668-44b9-8bd0-5ec63b24bcb5&_encoding=UTF8&tag=robbiethewagn-20&linkCode=ur2&linkId=486c2423c950f08b9c0ad542b688e717&camp=1789&creative=9325"
+              title="Herman Miller Aeron Chair"
+            >
               If I’m going to slouch in the worst ergonomic position imaginable
               all day, I might as well do it in an expensive chair.
             </Tool>
           </ToolsSection>
+
           <ToolsSection title="Development tools">
-            <Tool title="VSCode">TODO</Tool>
-            <Tool title="Warp">TODO</Tool>
+            <Tool href="https://code.visualstudio.com/" title="VSCode">
+              VSCode is nothing new or flashy these days, but it’s still the
+              best code editor out there right now. It has extensions for every
+              language you can think of and is extremely customizable to allow
+              for whatever coding experience you prefer.
+            </Tool>
+
+            <Tool href="https://www.warp.dev/" title="Warp">
+              TODO
+            </Tool>
           </ToolsSection>
+
           <ToolsSection title="Podcasting">
             <Tool
               href="https://www.amazon.com/Electro-Voice-RE20-BLACK-Broadcast-Microphone-RE20/dp/B08P7QTZM5/ref=sxts_rp_s_a_1_0?&_encoding=UTF8&tag=robbiethewagn-20&linkCode=ur2&linkId=47048637966798f88c575f21df7747dc&camp=1789&creative=9325"
               title="Electro-Voice RE20 Dynamic Broadcast Announcer Microphone"
             >
-              TODO
+              The Shure SM7B might be the gold standard for podcast microphones,
+              but, if so, the Electro-Voice RE20 must be platinum. This thing
+              makes everyone sound good effortlessly and gives you that
+              signature podcaster sound you are looking for.
             </Tool>
+
             <Tool
               href="https://www.amazon.com/Audient-EVO-USB-Audio-Interface/dp/B0B279PYDR/ref=sr_1_2?&_encoding=UTF8&tag=robbiethewagn-20&linkCode=ur2&linkId=30d0d8129e56762105427849c5790aa1&camp=1789&creative=9325"
               title="Audient EVO 16 USB Audio Interface"
             >
               TODO
             </Tool>
+
             <Tool href="https://opalcamera.com/" title="Opal C1 4k Webcam">
               If you don’t want to spend thousands of dollars on a super fancy
               camera, but still want to get video results that look like you
               did, look no further than the Opal C1!
             </Tool>
           </ToolsSection>
+
           <ToolsSection title="Productivity">
-            <Tool title="Alfred">
-              It’s not the newest kid on the block but it’s still the fastest.
-              The Sublime Text of the application launcher world.
-            </Tool>
-            <Tool title="Reflect">
-              Using a daily notes system instead of trying to keep things
-              organized by topics has been super powerful for me. And with
-              Reflect, it’s still easy for me to keep all of that stuff
-              discoverable by topic even though all of my writing happens in the
-              daily note.
-            </Tool>
+            <Tool title="Arc Browser">TODO</Tool>
+
             <Tool title="SavvyCal">
               Great tool for scheduling meetings while protecting my calendar
               and making sure I still have lots of time for deep work during the
               week.
             </Tool>
+
             <Tool title="Focus">
               Simple tool for blocking distracting websites when I need to just
               do the work and get some momentum going.
