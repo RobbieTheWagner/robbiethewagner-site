@@ -123,11 +123,11 @@ export default function About() {
               </SocialLink>
 
               <SocialLink
-                href="mailto:spencer@planetaria.tech"
+                href="robbie@shipshape.io"
                 icon={MailIcon}
                 className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
-                spencer@planetaria.tech
+                robbie@shipshape.io
               </SocialLink>
             </ul>
           </div>
