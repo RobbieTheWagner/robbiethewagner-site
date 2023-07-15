@@ -42,9 +42,10 @@ export default function Uses() {
           <ToolsSection title="Workstation">
             <Tool title="16” MacBook Pro, M1 Max, 64GB RAM (2021)">
               I was using an Intel-based 16” MacBook Pro prior to this and the
-              difference is night and day. I’ve never heard the fans turn on a
-              single time, even under the incredibly heavy loads I put it
-              through with our various launch simulations.
+              difference is night and day. The M1 is so efficient that the fans
+              hardly ever turn on and my battery lasts forever. Even when I get
+              the low battery warning, I know I have plenty of time before I
+              need to plug in.
             </Tool>
 
             <Tool
@@ -80,8 +81,11 @@ export default function Uses() {
               href="https://www.amazon.com/Herman-Miller-Aeron-Chair-Graphite/dp/B01N0ZUN15/ref=sr_1_6?keywords=herman+miller+aeron&amp;qid=1686707683&amp;sr=8-6&amp;ufe=app_do%253Aamzn1.fos.ac2169a1-b668-44b9-8bd0-5ec63b24bcb5&_encoding=UTF8&tag=robbiethewagn-20&linkCode=ur2&linkId=486c2423c950f08b9c0ad542b688e717&camp=1789&creative=9325"
               title="Herman Miller Aeron Chair"
             >
-              If I’m going to slouch in the worst ergonomic position imaginable
-              all day, I might as well do it in an expensive chair.
+              This is the gold standard of desk chairs for a reason. It’s both
+              ergonomic and actually comfortable in various positions. This
+              allows you to have as good or as bad posture as you’d like, while
+              still remaining comfortable all day. It is endlessly adjustable,
+              so it is comfortable for just about anyone.
             </Tool>
           </ToolsSection>
 
@@ -94,7 +98,10 @@ export default function Uses() {
             </Tool>
 
             <Tool href="https://www.warp.dev/" title="Warp">
-              TODO
+              Warp has been my terminal of choice for awhile now. It has a lot
+              of great features, like saving your history in the cloud, so you
+              always know what commands to run, grouping your commands and their
+              output and making them shareable, and new fancy AI features.
             </Tool>
           </ToolsSection>
 
@@ -113,7 +120,10 @@ export default function Uses() {
               href="https://www.amazon.com/Audient-EVO-USB-Audio-Interface/dp/B0B279PYDR/ref=sr_1_2?&_encoding=UTF8&tag=robbiethewagn-20&linkCode=ur2&linkId=30d0d8129e56762105427849c5790aa1&camp=1789&creative=9325"
               title="Audient EVO 16 USB Audio Interface"
             >
-              TODO
+              I bought this after accidentally breaking my Rodecaster, as I was
+              looking for something with less physical buttons and more software
+              configuration. It gets the job done and sounds good, but not as
+              good as the Rodecaster, in my opinion.
             </Tool>
 
             <Tool href="https://opalcamera.com/" title="Opal C1 4k Webcam">
@@ -124,17 +134,10 @@ export default function Uses() {
           </ToolsSection>
 
           <ToolsSection title="Productivity">
-            <Tool title="Arc Browser">TODO</Tool>
-
-            <Tool title="SavvyCal">
-              Great tool for scheduling meetings while protecting my calendar
-              and making sure I still have lots of time for deep work during the
-              week.
-            </Tool>
-
-            <Tool title="Focus">
-              Simple tool for blocking distracting websites when I need to just
-              do the work and get some momentum going.
+            <Tool href="https://thebrowser.company/" title="Arc Browser">
+              It’s been a long time since a new browser came out that really
+              changed the game. Arc has a ton of great features, like a command
+              palette, spaces, and best of all, auto closing tabs.
             </Tool>
           </ToolsSection>
         </div>
