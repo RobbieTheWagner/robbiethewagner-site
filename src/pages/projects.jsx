@@ -3,7 +3,6 @@ import Image from 'next/image';
 
 import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg';
 import logoShepherd from '@/images/logos/shepherd.svg';
 import logoSwach from '@/images/logos/swach.svg';
 
@@ -22,13 +21,6 @@ const projects = [
       'Accessible, free, and open source site tour library, hand-written in Svelte.',
     link: { href: 'https://shepherdjs.dev/', label: 'shepherdjs.dev' },
     logo: logoShepherd,
-  },
-  {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
   },
 ];
 
