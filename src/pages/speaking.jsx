@@ -88,13 +88,13 @@ export default function Speaking() {
               event="Whiskey Web and Whatnot"
               cta="Listen to podcast"
             />
-            {/* <Appearance
+            <Appearance
               href="https://changelog.com/jsparty/285"
               title="Frontend Feud: CSS Podcast vs Whiskey Web and Whatnot"
               description="We had a blast with this friendly competition. I still cannot believe how many people hate all C languages!"
               event="JS Party, July 2023"
               cta="Listen to podcast"
-            /> */}
+            />
             <Appearance
               href="https://shoptalkshow.com/512/"
               title="Web Whiskey Crossover with Chuck Carpenter & Robbie Wagner"
