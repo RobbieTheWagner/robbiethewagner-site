@@ -89,6 +89,20 @@ export default function Speaking() {
               cta="Listen to podcast"
             />
             <Appearance
+              href="https://topenddevs.com/podcasts/javascript-jabber/episodes/unraveling-the-css-revolution-podcast-growth-tactics-and-more-jsj-600"
+              title="Unraveling the CSS Revolution, Podcast Growth Tactics, and More"
+              description="Had a good chat with the folks at JavaScript Jabber about podcasting tips, what's new in CSS, and various other topics."
+              event="JavaScript Jabber, September 2023"
+              cta="Listen to podcast"
+            />
+            <Appearance
+              href="https://modernweb.podbean.com/e/modern-web-podcast-s11e4-frameworks-vs-fundamentals-striking-the-right-balance/"
+              title="Frameworks vs. Fundamentals: Striking the Right Balance ft The Whiskey Web and Whatnot Podcast"
+              description="Really enjoyed chatting Ember, Astro, and the future of frameworks with Tracy and Rob."
+              event="Modern Web, September 2023"
+              cta="Listen to podcast"
+            />
+            <Appearance
               href="https://changelog.com/jsparty/285"
               title="Frontend Feud: CSS Podcast vs Whiskey Web and Whatnot"
               description="We had a blast with this friendly competition. I still cannot believe how many people hate all C languages!"
