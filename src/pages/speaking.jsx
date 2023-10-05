@@ -41,13 +41,17 @@ export default function Speaking() {
       >
         <div className="space-y-20">
           <SpeakingSection title="Conferences">
-            {/* <Appearance
-              href="/"
+            <Appearance
+              href="https://www.youtube.com/watch?v=sf9NUrPVNyU"
               title="Whiskey Web and Whatnot Live at EmberConf"
-              description="TODO"
+              description={`
+              Chatting with Ed Faulkner, Ember Core Team Member and Founder at Polynomial LLC, 
+              live at EmberConf about the challenges with package management, how using Vite 
+              with Ember will impact developer experience and the value of knowing how to debug.
+              `}
               event="EmberConf 2023"
               cta="Watch video"
-            /> */}
+            />
             <Appearance
               href="https://www.youtube.com/watch?v=Kw0V9HvMpI4"
               title="Talking to Your Dog with Ember"
