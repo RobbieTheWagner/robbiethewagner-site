@@ -41,6 +41,16 @@ export default function Speaking() {
       >
         <div className="space-y-20">
           <SpeakingSection title="Conferences">
+          <Appearance
+              href="https://www.youtube.com/playlist?list=PL7uiIY_6TPL9tTNI2uUFVRyUGTMzSgXkz"
+              title="Whiskey Web and Whatnot Live at THAT Conference"
+              description={`
+              We chatted live at THAT Conference Texas with James Quick, Shaundai Person, Amera White 
+              and Kevin Whinnery about all things web development.
+              `}
+              event="THAT Conference Texas 2024"
+              cta="Watch video"
+            />
             <Appearance
               href="https://www.youtube.com/watch?v=sf9NUrPVNyU"
               title="Whiskey Web and Whatnot Live at EmberConf"

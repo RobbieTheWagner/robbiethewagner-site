@@ -5,6 +5,7 @@ import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
 import logoShepherd from '@/images/logos/shepherd.svg';
 import logoSwach from '@/images/logos/swach.svg';
+import logoWuf from '@/images/logos/wuf.svg';
 
 const projects = [
   {
@@ -21,6 +22,13 @@ const projects = [
       'Accessible, free, and open source site tour library, hand-written in Svelte.',
     link: { href: 'https://shepherdjs.dev/', label: 'shepherdjs.dev' },
     logo: logoShepherd,
+  },
+  {
+    name: 'Wüf',
+    description:
+      'An experiment using EmberJS and the Web Audio API to translate dog barks.',
+    link: { href: 'https://wuf.plus/', label: 'wuf.plus' },
+    logo: logoWuf,
   },
 ];
 
