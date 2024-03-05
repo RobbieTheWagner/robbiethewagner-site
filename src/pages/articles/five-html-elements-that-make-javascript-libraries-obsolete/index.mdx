@@ -4,7 +4,74 @@ export const meta = {
   author: 'Robbie Wagner',
   date: '2024-03-05',
   title: '5 HTML Elements That Make JavaScript Libraries Obsolete!',
-  description: ``,
+  description: `
+    Do we even need JavaScript anymore?
+  `,
 };
 
 export default (props) => <ArticleLayout meta={meta} {...props} />;
+
+## Do we even need JavaScript anymore?
+
+With the slew of hot new HTML functionality, the answer may be no!
+
+## &lt;summary&gt; and &lt;details&gt;
+
+Accordions have been a popular feature of web apps for decades. They have historically
+been bundled with very heavy JS and CSS to animate the opening and closing of the accordion
+and added a lot of bloat to an application's bundle size.
+
+## &lt;progress&gt;
+
+In the past, you may have used libraries like progress.js to create progress bars for your
+applications, but not anymore! Thanks to HTML's `<progress>` element, these libraries are now
+mostly obsolete.
+
+{/* prettier-ignore */}
+```html progress.html
+<progress value="750" max="1000">
+  <span>70</span>%
+</progress>
+```
+
+<progress value="750" max="1000">
+  <span>70</span>%
+</progress>
+
+## &lt;meter&gt;
+
+`<meter>` is very similar to `<progress>` but has a subtly different meaning. It should be used
+when you want to display a scalar measurement within a range, for example, disk usage.
+
+```html meter.html
+<div>
+  <label for="disk_c">Disk usage C:</label>
+  <meter id="disk_c" value="2" min="0" max="10">2 out of 10</meter>
+</div>
+```
+
+<div>
+  <label for="disk_c">Disk usage C:</label>
+  <meter class="ml-2" id="disk_c" value="2" min="0" max="10">
+    2 out of 10
+  </meter>
+</div>
+
+## &lt;dialog&gt;
+
+Modals and such
+
+## &lt;input&gt;
+
+### &lt;input type="color"&gt;
+
+```html color-input.html
+<input type="color" />
+```
+
+<label class="flex items-center">
+  Pick a color
+  <input class="ml-2" type="color" />
+</label>
+
+### &lt;input type="date"&gt;

@@ -1,6 +1,7 @@
-import nextMDX from '@next/mdx'
-import remarkGfm from 'remark-gfm'
-import rehypePrism from '@mapbox/rehype-prism'
+import nextMDX from '@next/mdx';
+import remarkGfm from 'remark-gfm';
+import { remarkCodeHike } from '@code-hike/mdx';
+import rehypePrism from '@mapbox/rehype-prism';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -16,14 +17,17 @@ const nextConfig = {
     });
     return config;
   },
-}
+};
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [
+      [remarkCodeHike, { theme: 'one-dark-pro', lineNumbers: false }],
+      remarkGfm,
+    ],
     rehypePlugins: [rehypePrism],
   },
-})
+});
 
-export default withMDX(nextConfig)
+export default withMDX(nextConfig);
