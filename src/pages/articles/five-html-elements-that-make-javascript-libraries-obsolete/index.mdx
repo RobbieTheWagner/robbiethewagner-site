@@ -15,17 +15,65 @@ export default (props) => <ArticleLayout meta={meta} {...props} />;
 
 With the slew of hot new HTML functionality, the answer may be no!
 
-## &lt;summary&gt; and &lt;details&gt;
+## &lt;details&gt; and &lt;summary&gt;
 
-Accordions have been a popular feature of web apps for decades. They have historically
-been bundled with very heavy JS and CSS to animate the opening and closing of the accordion
-and added a lot of bloat to an application's bundle size.
+Accordions have been a popular feature of web apps for decades. They have
+historically been bundled with very heavy JS and CSS to animate the opening and
+closing of the accordion and added a lot of bloat to an application's bundle
+size. With the introduction of the `<details>` and `<summary>` elements,
+everyone can now have a simple accordion without the need for any additional
+JavaScript.
+
+```html accordion.html
+<details>
+  <summary>
+    <span>What's the best fast food?</span>
+  </summary>
+  <strong>Taco Bell</strong>
+</details>
+```
+
+<details>
+  <summary>
+    <span>What's the best fast food?</span>
+  </summary>
+  <strong>Taco Bell</strong>
+</details>
+
+If you are not concerned with animating the opening/closing or changing the
+default styles, you are done. However, if you want things to look a little more
+polished, you can apply some small styling changes to make opening and closing
+buttery smooth.
+
+```css smooth-accordion.css
+details {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+details summary {
+  cursor: pointer;
+  margin-bottom: -16px; /* for more prominent move */
+  transition: margin 150ms ease-out;
+}
+
+details[open] summary {
+  margin-bottom: 16px;
+}
+```
+
+<details className="group py-4">
+  <summary className="-mb-4 cursor-pointer transition-all group-open:mb-4">
+    <span>What's the best fast food?</span>
+  </summary>
+  <strong>Taco Bell</strong>
+</details>
 
 ## &lt;progress&gt;
 
-In the past, you may have used libraries like progress.js to create progress bars for your
-applications, but not anymore! Thanks to HTML's `<progress>` element, these libraries are now
-mostly obsolete.
+In the past, you may have used libraries like progress.js to create progress
+bars for your applications, but not anymore! Thanks to HTML's `<progress>`
+element, these libraries are now mostly obsolete.
 
 {/* prettier-ignore */}
 ```html progress.html
@@ -40,8 +88,9 @@ mostly obsolete.
 
 ## &lt;meter&gt;
 
-`<meter>` is very similar to `<progress>` but has a subtly different meaning. It should be used
-when you want to display a scalar measurement within a range, for example, disk usage.
+`<meter>` is very similar to `<progress>` but has a subtly different meaning. It
+should be used when you want to display a scalar measurement within a range, for
+example, disk usage.
 
 ```html meter.html
 <div>
@@ -51,8 +100,8 @@ when you want to display a scalar measurement within a range, for example, disk 
 ```
 
 <div>
-  <label for="disk_c">Disk usage C:</label>
-  <meter class="ml-2" id="disk_c" value="2" min="0" max="10">
+  <label htmlFor="disk_c">Disk usage C:</label>
+  <meter className="ml-2" id="disk_c" value="2" min="0" max="10">
     2 out of 10
   </meter>
 </div>
@@ -69,9 +118,14 @@ Modals and such
 <input type="color" />
 ```
 
-<label class="flex items-center">
+<label className="flex items-center">
   Pick a color
-  <input class="ml-2" type="color" />
+  <input className="ml-2" type="color" />
 </label>
 
 ### &lt;input type="date"&gt;
+
+## Wrapping up
+
+Hopefully this has enlightened some of you to the power of native HTML solutions
+and will make you think twice about reaching for a library by default.
