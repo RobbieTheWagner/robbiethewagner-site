@@ -1,6 +1,6 @@
 ---
   author: "Robbie Wagner"
-  date: "2024-03-10"
+  date: "2024-03-11"
   description:
     "Do we even need JavaScript anymore? Of course we do, but maybe not as often as you would think! 
     With the slew of hot new HTML functionality, I am increasingly finding that native HTML elements 
@@ -127,25 +127,50 @@ example, disk usage.
 
 ## &lt;dialog&gt;
 
+Modal dialogs are a very common thing in JavaScript applications. There are
+countless libraries for rendering the modal,
+
 ```html modal-dialog.html
 <dialog>
   <button autofocus>Close</button>
-  <p>This modal dialog has a groovy backdrop!</p>
+  <p>Hello, I am a modal dialog!</p>
 </dialog>
 <button>Show the dialog</button>
 ```
 
-export const dialogRef = useRef(null);
+export const ModalDialog = () => {
+const dialogRef = useRef();
 
-export function showModal() {
-  dialogRef.showModal();
-}
+function closeModal() { dialogRef.current.close(); }
 
-<dialog ref={dialogRef}>
-  <button autoFocus>Close</button>
-  <p>This modal dialog has a groovy backdrop!</p>
-</dialog>
-<button onClick={showModal}>Show the dialog</button>
+function showModal() { dialogRef.current.showModal(); }
+
+return (
+
+<>
+  <dialog
+    className="fixed left-1/2 top-1/2 -ml-32 -mt-24 h-48 w-64 transform p-8"
+    ref={dialogRef}
+  >
+    <button
+      autoFocus
+      className="rounded bg-slate-200 px-4 py-2 text-gray-900 transition-colors hover:bg-slate-400"
+      onClick={closeModal}
+    >
+      Close
+    </button>
+    <p>Hello, I am a modal dialog!</p>
+  </dialog>
+  <button
+    className="rounded bg-slate-200 px-4 py-2 text-gray-900 transition-colors hover:bg-slate-400"
+    onClick={showModal}
+  >
+    Show the dialog
+  </button>
+</>
+) }
+
+<ModalDialog />
 
 ## &lt;input&gt;
 
