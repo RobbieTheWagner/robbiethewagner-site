@@ -2,6 +2,8 @@ import nextMDX from '@next/mdx';
 import remarkGfm from 'remark-gfm';
 import { remarkCodeHike } from '@code-hike/mdx';
 import rehypePrism from '@mapbox/rehype-prism';
+import remarkFrontmatter from 'remark-frontmatter';
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -25,6 +27,8 @@ const withMDX = nextMDX({
     remarkPlugins: [
       [remarkCodeHike, { theme: 'one-dark-pro', lineNumbers: false }],
       remarkGfm,
+      remarkFrontmatter,
+      remarkMdxFrontmatter,
     ],
     rehypePlugins: [rehypePrism],
   },

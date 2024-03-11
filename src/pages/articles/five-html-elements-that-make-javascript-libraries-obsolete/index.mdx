@@ -1,19 +1,29 @@
+---
+  author: "Robbie Wagner"
+  date: "2024-03-10"
+  description:
+    "Do we even need JavaScript anymore? Of course we do, but maybe not as often as you would think! 
+    With the slew of hot new HTML functionality, I am increasingly finding that native HTML elements 
+    do many of the same things I used to reach for JavaScript libraries for. Come with me on this 
+    journey and we'll explore my top..."
+  title: "5 HTML Elements That Make JavaScript Libraries Obsolete!"
+---
+
+import { useRef } from 'react';
+
 import { ArticleLayout } from '@/components/ArticleLayout';
 
-export const meta = {
-  author: 'Robbie Wagner',
-  date: '2024-03-05',
-  title: '5 HTML Elements That Make JavaScript Libraries Obsolete!',
-  description: `
-    Do we even need JavaScript anymore?
-  `,
-};
+export const meta = frontmatter;
 
 export default (props) => <ArticleLayout meta={meta} {...props} />;
 
 ## Do we even need JavaScript anymore?
 
-With the slew of hot new HTML functionality, the answer may be no!
+Of course we do, but maybe not as often as you would think! With the slew of hot
+new HTML functionality, I am increasingly finding that native HTML elements do
+many of the same things I used to reach for JavaScript libraries for. Come with
+me on this journey and we'll explore my top 5 HTML elements that replace bloated
+JavaScript libraries.
 
 ## &lt;details&gt; and &lt;summary&gt;
 
@@ -53,8 +63,10 @@ details {
 
 details summary {
   cursor: pointer;
-  margin-bottom: -16px; /* for more prominent move */
-  transition: margin 150ms ease-out;
+  margin-bottom: -16px;
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 details[open] summary {
@@ -78,13 +90,20 @@ element, these libraries are now mostly obsolete.
 {/* prettier-ignore */}
 ```html progress.html
 <progress value="750" max="1000">
-  <span>70</span>%
+  <span>75</span>%
 </progress>
 ```
 
-<progress value="750" max="1000">
-  <span>70</span>%
-</progress>
+<div className="flex items-center">
+  <progress
+    className="progress-unfilled:bg-[#F2F2F2] progress-filled:bg-cyan-700"
+    value="750"
+    max="1000"
+  >
+    <span>75</span>%
+  </progress>
+  <span className="ml-2">75</span>%
+</div>
 
 ## &lt;meter&gt;
 
@@ -94,13 +113,13 @@ example, disk usage.
 
 ```html meter.html
 <div>
-  <label for="disk_c">Disk usage C:</label>
+  <label for="disk_c">Disk usage:</label>
   <meter id="disk_c" value="2" min="0" max="10">2 out of 10</meter>
 </div>
 ```
 
 <div>
-  <label htmlFor="disk_c">Disk usage C:</label>
+  <label htmlFor="disk_c">Disk usage:</label>
   <meter className="ml-2" id="disk_c" value="2" min="0" max="10">
     2 out of 10
   </meter>
@@ -108,11 +127,43 @@ example, disk usage.
 
 ## &lt;dialog&gt;
 
-Modals and such
+```html modal-dialog.html
+<dialog>
+  <button autofocus>Close</button>
+  <p>This modal dialog has a groovy backdrop!</p>
+</dialog>
+<button>Show the dialog</button>
+```
+
+export const dialogRef = useRef(null);
+
+export function showModal() {
+  dialogRef.showModal();
+}
+
+<dialog ref={dialogRef}>
+  <button autoFocus>Close</button>
+  <p>This modal dialog has a groovy backdrop!</p>
+</dialog>
+<button onClick={showModal}>Show the dialog</button>
 
 ## &lt;input&gt;
 
+There are a TON of
+[input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+built into HTML these days that make collecting data from users a breeze. While
+I could list many examples, I think there are two types that really stick out to
+me as being able to replace complicated JavaScript libraries.
+
 ### &lt;input type="color"&gt;
+
+The color input type is something I discovered at work while trying to fix a bug
+in our custom color picker logic. We were using an outdated package, that had
+not been maintained in years, and debugging it was proving very difficult.
+
+While looking for alternatives, I happened to take a peek at the current input
+types that existed, and I was overjoyed to find `type="color"` as it was exactly
+what I needed!
 
 ```html color-input.html
 <input type="color" />
@@ -125,7 +176,31 @@ Modals and such
 
 ### &lt;input type="date"&gt;
 
+The date picker has plagued web developers since the dawn of web development
+itself. We all know we will probably need one for our applications, but there
+has never been a great one that handled all the necessary functionality, without
+bugs, worked well on mobile, and was customizable to fit the look and feel of
+our apps.
+
+Enter the native HTML input `type="date"`. This thing is amazing. It handles all
+the functionality you could ever want from a date picker, and since it is native
+will seamlessly fall back to native controls on mobile.
+
+Pretty much the only downside is, since they are browser specific, there isn't
+much you can do to have a consistent look and feel across browsers. I would
+argue this shouldn't be a big deal though. Users are used to input controls
+matching the environment they are browsing in, so if they don't match your
+application, I think that is okay.
+
+```html date-input.html
+<input type="date" />
+```
+
+<input type="date" />
+
 ## Wrapping up
 
-Hopefully this has enlightened some of you to the power of native HTML solutions
-and will make you think twice about reaching for a library by default.
+Hopefully this has enlightened you to the power of native HTML solutions and
+will make you think twice about reaching for a library by default. What are some
+of your favorite HTML elements? Hit me up on Twitter and let me know!
+[@RobbieTheWagner](https://twitter.com/RobbieTheWagner).

@@ -1,3 +1,14 @@
+---
+  author: "Robbie Wagner"
+  date: "2022-10-15"
+  description:
+    "Which JavaScript podcasts are the hottest?
+    Although podcasts are not a new thing, they have exploded in popularity over the
+    last several years. Likewise, JavaScript is also not new, but has continued to
+    grow exponentially and is used in all sorts of ways..."
+  title: "Top 5 JavaScript Podcasts for 2023"
+---
+
 import Image from 'next/image';
 
 import { ArticleLayout } from '@/components/ArticleLayout';
@@ -8,17 +19,7 @@ import shoptalkImg from './img/shop-talk.png';
 import syntaxImg from './img/syntax.png';
 import wwwImg from './img/www.png';
 
-export const meta = {
-  author: 'Robbie Wagner',
-  date: '2022-10-15',
-  title: 'Top 5 JavaScript Podcasts for 2023',
-  description: `
-    Which JavaScript podcasts are the hottest?
-    Although podcasts are not a new thing, they have exploded in popularity over the
-    last several years. Likewise, JavaScript is also not new, but has continued to
-    grow exponentially and is used in all sorts of ways...
-  `,
-};
+export const meta = frontmatter;
 
 export default (props) => <ArticleLayout meta={meta} {...props} />;
 
@@ -37,10 +38,7 @@ date on the latest JavaScript trends.
 ## 1. [Syntax](https://syntax.fm/)
 
 <a href="https://syntax.fm/">
-  <Image
-    src={syntaxImg}
-    alt="Syntax podcast logo"
-  />
+  <Image src={syntaxImg} alt="Syntax podcast logo" />
 </a>
 
 One of _the_ most popular, and tastiest web development podcasts out there is
@@ -56,10 +54,7 @@ guests from the developer community.
 ## 2. [ShopTalk Show](https://shoptalkshow.com/)
 
 <a href="https://shoptalkshow.com/">
-  <Image
-    src={shoptalkImg}
-    alt="ShopTalk Show podcast logo"
-  />
+  <Image src={shoptalkImg} alt="ShopTalk Show podcast logo" />
 </a>
 
 If you have been around the web development scene for a while, you have probably
@@ -74,10 +69,7 @@ day.
 ## 3. [JS Party](https://changelog.com/jsparty)
 
 <a href="https://changelog.com/jsparty">
-  <Image
-    src={jsPartyImg}
-    alt="JS Party podcast logo"
-  />
+  <Image src={jsPartyImg} alt="JS Party podcast logo" />
 </a>
 
 [JS Party](https://changelog.com/jsparty) has had many hosts over the years and
@@ -89,18 +81,15 @@ details of their topics to help keep you up to date.
 ## 4. [Whiskey Web and Whatnot](https://whiskeywebandwhatnot.fm/)
 
 <a href="https://whiskeywebandwhatnot.fm/">
-  <Image
-    src={wwwImg}
-    alt="Whiskey Web and Whatnot podcast logo"
-  />
+  <Image src={wwwImg} alt="Whiskey Web and Whatnot podcast logo" />
 </a>
 
 We may be a bit biased here, but we think our podcast
-[Whiskey Web and Whatnot](https://whiskeywebandwhatnot.fm/) has a great
-format as both an informative JavaScript podcast and an entertaining fireside
-chat with some of your favorite devs, like the aforementioned Wes Bos and Chris
-Coyier, as well as other prominent developers like Charlie Gerard, Kelly Vaughn,
-and Kent C. Dodds.
+[Whiskey Web and Whatnot](https://whiskeywebandwhatnot.fm/) has a great format
+as both an informative JavaScript podcast and an entertaining fireside chat with
+some of your favorite devs, like the aforementioned Wes Bos and Chris Coyier, as
+well as other prominent developers like Charlie Gerard, Kelly Vaughn, and Kent
+C. Dodds.
 
 If you're looking for something a little less technical, find an episode that
 sounds interesting, grab a glass, and have a drink with us.
@@ -108,10 +97,7 @@ sounds interesting, grab a glass, and have a drink with us.
 ## 5. [Front End Happy Hour](https://www.frontendhappyhour.com/)
 
 <a href="https://www.frontendhappyhour.com/">
-  <Image
-    src={frontEndHHImg}
-    alt="Front End Happy Hour podcast logo"
-  />
+  <Image src={frontEndHHImg} alt="Front End Happy Hour podcast logo" />
 </a>
 
 [Front End Happy Hour](https://www.frontendhappyhour.com/) is another somewhat
