@@ -1,0 +1,53 @@
+---
+  author: "Robbie Wagner"
+  date: "2024-03-12"
+  description:
+    "TODO"
+  title: "a11y"
+---
+
+import { ArticleLayout } from '@/components/ArticleLayout';
+import { BadReactInputFocus } from './BadReactInputFocus';
+
+export const meta = frontmatter;
+
+export default (props) => <ArticleLayout meta={meta} {...props} />;
+
+## Is learning HTML actually important?
+
+Y 👏 E 👏 S 👏!
+
+Can you tell the difference between these two input/label implementations?
+
+<div className="not-prose mb-4 py-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
+  <div>
+    <BadReactInputFocus />
+  </div>
+
+  <div>
+    <label>
+      <span className="mb-2 block">My Cool Input Label</span>
+      <input className="p-2" placeholder="My cool input text" type="text"/>
+    </label>
+  </div>
+</div>
+
+It may not be obvious to the naked eye, but if you inspect the elements and poke
+around at the code, you can see they are very different. One of them uses a
+`div` with an `onClick` to focus the input, (which is something I actually saw
+in a real code base!) while the other uses semantic HTML to wrap the input in a
+`label`.
+
+<CH.Code>
+```jsx BadReactInputFocus.jsx
+// from ./BadReactInputFocus.jsx
+```
+
+```html AccessibleHTMLInput.html
+<label>
+  <span class="mb-2 block">My Cool Input Label</span>
+  <input class="p-2" placeholder="My cool input text" type="text" />
+</label>
+```
+
+</CH.Code>
