@@ -9,9 +9,8 @@
   title: "5 HTML Elements That Make JavaScript Libraries Obsolete!"
 ---
 
-import { useRef } from 'react';
-
 import { ArticleLayout } from '@/components/ArticleLayout';
+import { ModalDialog } from './ModalDialog';
 
 export const meta = frontmatter;
 
@@ -128,47 +127,31 @@ example, disk usage.
 ## &lt;dialog&gt;
 
 Modal dialogs are a very common thing in JavaScript applications. There are
-countless libraries for rendering the modal,
+countless libraries for rendering modals, and most of them have tons of extra
+code you may not need. Historically, developers needed to manually apply an
+overlay to stop the user from clicking on other things, trap keyboard focus to
+the modal to avoid tabbing out of the modal context, and various other things to
+make the modal as usable and accessible as it could be.
 
-```html modal-dialog.html
-<dialog>
-  <button autofocus>Close</button>
-  <p>Hello, I am a modal dialog!</p>
-</dialog>
-<button>Show the dialog</button>
+Today, we have the `<dialog>` element to handle all of this for us out of the
+box. It ships with support for showing both a non-modal dialog via
+[`.show()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/show)
+and a modal dialog via
+[`.showModal()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal)
+and either of them can be programmatically closed via the
+[`.close()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/close)
+method.
+
+Unlike some of the other elements mentioned in this post, we will need a little
+bit more JavaScript setup to work with `<dialog>` since we need to store a
+reference to the element to be able to call `.show()/.showModal()` on it. In the
+interest of setting things up quickly, I threw together a React and Tailwind
+example that illustrates how you could create a small `<ModalDialog/>`
+component.
+
+```jsx ModalDialog.jsx
+// from ./ModalDialog.jsx
 ```
-
-export const ModalDialog = () => {
-const dialogRef = useRef();
-
-function closeModal() { dialogRef.current.close(); }
-
-function showModal() { dialogRef.current.showModal(); }
-
-return (
-
-<>
-  <dialog
-    className="fixed left-1/2 top-1/2 -ml-32 -mt-24 h-48 w-64 transform p-8"
-    ref={dialogRef}
-  >
-    <button
-      autoFocus
-      className="rounded bg-slate-200 px-4 py-2 text-gray-900 transition-colors hover:bg-slate-400"
-      onClick={closeModal}
-    >
-      Close
-    </button>
-    <p>Hello, I am a modal dialog!</p>
-  </dialog>
-  <button
-    className="rounded bg-slate-200 px-4 py-2 text-gray-900 transition-colors hover:bg-slate-400"
-    onClick={showModal}
-  >
-    Show the dialog
-  </button>
-</>
-) }
 
 <ModalDialog />
 
