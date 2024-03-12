@@ -10,7 +10,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'mdx'],
+  pageExtensions: ['page.js', 'page.jsx', 'mdx'],
   reactStrictMode: true,
   experimental: {
     scrollRestoration: true,
