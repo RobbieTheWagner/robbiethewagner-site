@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-export function ModalDialog() {
+export default function ModalDialog() {
   const dialogRef = useRef();
 
   function closeModal() {
