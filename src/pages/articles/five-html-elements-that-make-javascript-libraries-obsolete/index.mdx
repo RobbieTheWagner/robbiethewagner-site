@@ -1,0 +1,222 @@
+---
+  author: "Robbie Wagner"
+  date: "2024-03-11"
+  description:
+    "Do we even need JavaScript anymore? Of course we do, but maybe not as often as you would think! 
+    With the slew of hot new HTML functionality, I am increasingly finding that native HTML elements 
+    do many of the same things I used to reach for JavaScript libraries for. Come with me on this 
+    journey and we'll explore my top..."
+  title: "5 HTML Elements That Make JavaScript Libraries Obsolete!"
+---
+
+import { ArticleLayout } from '@/components/ArticleLayout';
+import { ModalDialog } from './ModalDialog';
+
+export const meta = frontmatter;
+
+export default (props) => <ArticleLayout meta={meta} {...props} />;
+
+## Do we even need JavaScript anymore?
+
+Of course we do, but maybe not as often as you would think! With the slew of hot
+new HTML functionality, I am increasingly finding that native HTML elements do
+many of the same things I used to reach for JavaScript libraries for. Come with
+me on this journey and we'll explore my top 5 HTML elements that replace bloated
+JavaScript libraries.
+
+## Table of Contents
+
+## [&lt;details&gt; and &lt;summary&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
+
+Accordions have been a popular feature of web apps for decades. They have
+historically been bundled with very heavy JS and CSS to animate the opening and
+closing of the accordion and added a lot of bloat to an application's bundle
+size. With the introduction of the `<details>` and `<summary>` elements,
+everyone can now have a simple accordion without the need for any additional
+JavaScript.
+
+```html accordion.html
+<details>
+  <summary>
+    <span>What's the best fast food?</span>
+  </summary>
+  <strong>Taco Bell</strong>
+</details>
+```
+
+<details>
+  <summary>
+    <span>What's the best fast food?</span>
+  </summary>
+  <strong>Taco Bell</strong>
+</details>
+
+If you are not concerned with animating the opening/closing or changing the
+default styles, you are done. However, if you want things to look a little more
+polished, you can apply some small styling changes to make opening and closing
+buttery smooth.
+
+```css smooth-accordion.css
+details {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+details summary {
+  cursor: pointer;
+  margin-bottom: -16px;
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+details[open] summary {
+  margin-bottom: 16px;
+}
+```
+
+<details className="group py-4">
+  <summary className="-mb-4 cursor-pointer transition-all group-open:mb-4">
+    <span>What's the best fast food?</span>
+  </summary>
+  <strong>Taco Bell</strong>
+</details>
+
+## [&lt;progress&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress)
+
+In the past, you may have used libraries like
+[progress.js](https://usablica.github.io/progress.js/) to create progress bars
+for your applications, but not anymore! Thanks to HTML's `<progress>` element,
+these libraries are now mostly obsolete.
+
+You will probably want to create some kind of wrapper component for your
+progress bars, so that you can style them and easily have the values be
+reactive, but that is not a requirement for the base case.
+
+{/* prettier-ignore */}
+```html progress.html
+<progress value="750" max="1000">
+  <span>75</span>%
+</progress>
+```
+
+<div className="flex items-center">
+  <progress
+    className="progress-unfilled:bg-[#F2F2F2] progress-filled:bg-cyan-700"
+    value="750"
+    max="1000"
+  >
+    <span>75</span>%
+  </progress>
+  <span className="ml-2">75</span>%
+</div>
+
+## [&lt;meter&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
+
+`<meter>` is very similar to `<progress>` but has a subtly different meaning. It
+should be used when you want to display a scalar measurement within a range, for
+example, disk usage.
+
+```html meter.html
+<div>
+  <label for="disk_c">Disk usage:</label>
+  <meter id="disk_c" value="2" min="0" max="10">2 out of 10</meter>
+</div>
+```
+
+<div>
+  <label htmlFor="disk_c">Disk usage:</label>
+  <meter className="ml-2" id="disk_c" value="2" min="0" max="10">
+    2 out of 10
+  </meter>
+</div>
+
+## [&lt;dialog&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
+
+Modal dialogs are a very common thing in JavaScript applications. There are
+countless libraries for rendering modals, and most of them have tons of extra
+code you may not need. Historically, developers needed to manually apply an
+overlay to stop the user from clicking on other things, trap keyboard focus to
+the modal to avoid tabbing out of the modal context, and various other things to
+make the modal as usable and accessible as it could be.
+
+Today, we have the `<dialog>` element to handle all of this for us out of the
+box. It ships with support for showing both a non-modal dialog via
+[`.show()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/show)
+and a modal dialog via
+[`.showModal()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/showModal)
+and either of them can be programmatically closed via the
+[`.close()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/close)
+method.
+
+Unlike some of the other elements mentioned in this post, we will need a little
+bit more JavaScript setup to work with `<dialog>` since we need to store a
+reference to the element to be able to call `.show()/.showModal()` on it. In the
+interest of setting things up quickly, I threw together a React and Tailwind
+example that illustrates how you could create a small `<ModalDialog/>`
+component.
+
+```jsx ModalDialog.jsx
+// from ./ModalDialog.jsx
+```
+
+<ModalDialog />
+
+## &lt;input&gt;
+
+There are a TON of
+[input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+built into HTML these days that make collecting data from users a breeze. While
+I could list many examples, I think there are two types that really stick out to
+me as being able to replace complicated JavaScript libraries.
+
+### [&lt;input type="color"&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color)
+
+The color input type is something I discovered at work while trying to fix a bug
+in our custom color picker logic. We were using an outdated package, that had
+not been maintained in years, and debugging it was proving very difficult.
+
+While looking for alternatives, I happened to take a peek at the current input
+types that existed, and I was overjoyed to find `type="color"` as it was exactly
+what I needed!
+
+```html color-input.html
+<input type="color" />
+```
+
+<label className="flex items-center">
+  Pick a color
+  <input className="ml-2" type="color" />
+</label>
+
+### [&lt;input type="date"&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date)
+
+The date picker has plagued web developers since the dawn of web development
+itself. We all know we will probably need one for our applications, but there
+has never been a great one that handled all the necessary functionality, without
+bugs, worked well on mobile, and was customizable to fit the look and feel of
+our apps.
+
+Enter the native HTML input `type="date"`. This thing is amazing. It handles all
+the functionality you could ever want from a date picker, and since it is native
+will seamlessly fall back to native controls on mobile.
+
+Pretty much the only downside is, since they are browser specific, there isn't
+much you can do to have a consistent look and feel across browsers. I would
+argue this shouldn't be a big deal though. Users are used to input controls
+matching the environment they are browsing in, so if they don't match your
+application, I think that is okay. Consistently working functionality is better
+than something that looks pretty, but is buggy any day of the week.
+
+```html date-input.html
+<input type="date" />
+```
+
+<input type="date" />
+
+## Wrapping up
+
+Hopefully this has enlightened you to the power of native HTML solutions and
+will make you think twice about reaching for a library by default. What are some
+of your favorite HTML elements? Hit me up on Twitter and let me know!
+[@RobbieTheWagner](https://twitter.com/RobbieTheWagner).

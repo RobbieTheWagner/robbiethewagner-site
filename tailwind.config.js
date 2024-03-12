@@ -1,8 +1,20 @@
+const plugin = require('tailwindcss/plugin');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js,jsx}'],
+  content: ['./src/**/*.{js,jsx,mdx}'],
   darkMode: 'class',
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    plugin(function ({ addVariant }) {
+      addVariant('progress-unfilled', ['&::-webkit-progress-bar', '&']);
+      addVariant('progress-filled', [
+        '&::-webkit-progress-value',
+        '&::-moz-progress-bar',
+        '&',
+      ]);
+    }),
+  ],
   theme: {
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],
@@ -300,4 +312,4 @@ module.exports = {
       },
     }),
   },
-}
+};

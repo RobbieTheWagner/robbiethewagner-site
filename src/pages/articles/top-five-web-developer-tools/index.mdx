@@ -1,3 +1,14 @@
+---
+  author: "Robbie Wagner"
+  date: "2022-12-05"
+  description:
+    "When was the last time you updated your web development tools?
+    I don't know about you, but when I find tools I like to use for web development,
+    I tend to stick with them for many, many years. This isn't necessarily a bad
+    thing, but in the past year or two a..."
+  title: "Top 5 Web Developer Tools for 2023"
+---
+
 import Image from 'next/image';
 
 import { ArticleLayout } from '@/components/ArticleLayout';
@@ -9,17 +20,7 @@ import warpAISearch from './img/warp-ai-search.jpg';
 import warpDocs from './img/warp-docs.png';
 import zed from './img/zed.jpg';
 
-export const meta = {
-  author: 'Robbie Wagner',
-  date: '2022-12-05',
-  title: 'Top 5 Web Developer Tools for 2023',
-  description: `
-    When was the last time you updated your web development tools?
-    I don't know about you, but when I find tools I like to use for web development,
-    I tend to stick with them for many, many years. This isn't necessarily a bad
-    thing, but in the past year or two a...
-  `,
-};
+export const meta = frontmatter;
 
 export default (props) => <ArticleLayout meta={meta} {...props} />;
 
@@ -105,7 +106,7 @@ external wiki or docs site, and instead, you can view the docs directly inline.
 </a>
 
 To learn more about Warp, check out our
-[podcast episode with Warp's founder, Zach Lloyd](https://www.whiskeywebandwhatnot.fm/prioritizing-performance-and-the-future-of-the-terminal-with-zach-lloyd/).
+[podcast episode with Warp's founder, Zach Lloyd](https://www.whiskey.fm/prioritizing-performance-and-the-future-of-the-terminal-with-zach-lloyd/).
 
 ## 3. [Zed](https://zed.dev/)
 
@@ -179,5 +180,5 @@ want to save keystrokes!
 
 These, in my opinion, are the top 5 web developer tools people should be
 checking out in 2023 and beyond. If there is a developer tool you think should
-have been on this list, let us know on Twitter!
-([@whiskeywebfm](https://twitter.com/whiskeywebfm))
+have been on this list, let me know on Twitter!
+([@RobbieTheWagner](https://twitter.com/RobbieTheWagner))

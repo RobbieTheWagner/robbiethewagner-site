@@ -41,7 +41,7 @@ export default function Speaking() {
       >
         <div className="space-y-20">
           <SpeakingSection title="Conferences">
-          <Appearance
+            <Appearance
               href="https://www.youtube.com/playlist?list=PL7uiIY_6TPL9tTNI2uUFVRyUGTMzSgXkz"
               title="Whiskey Web and Whatnot Live at THAT Conference"
               description={`
