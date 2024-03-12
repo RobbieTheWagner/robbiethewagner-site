@@ -34,21 +34,24 @@ export function ArticleLayout({
     <>
       <Head>
         <title>{`${meta.title} - Robbie Wagner`}</title>
+        <meta name="description" content={meta.description} />
+
+        <meta
+          content={meta.description}
+          name="og:description"
+          key="ogDescription"
+        />
         <meta
           content={`${meta.title} - Robbie Wagner`}
           name="og:title"
           key="ogTitle"
         />
+
+        <meta name="twitter:card" content="summary" />
         <meta
           content={`${meta.title} - Robbie Wagner`}
           name="twitter:title"
           key="twitterTitle"
-        />
-        <meta name="description" content={meta.description} />
-        <meta
-          content={meta.description}
-          name="og:description"
-          key="ogDescription"
         />
         <meta
           content={meta.description}
