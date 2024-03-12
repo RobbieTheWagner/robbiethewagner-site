@@ -1,9 +1,9 @@
-import Head from 'next/head'
-import { useRouter } from 'next/router'
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-import { Container } from '@/components/Container'
-import { Prose } from '@/components/Prose'
-import { formatDate } from '@/lib/formatDate'
+import { Container } from '@/components/Container';
+import { Prose } from '@/components/Prose';
+import { formatDate } from '@/lib/formatDate';
 
 function ArrowLeftIcon(props) {
   return (
@@ -15,7 +15,7 @@ function ArrowLeftIcon(props) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
 export function ArticleLayout({
@@ -24,17 +24,37 @@ export function ArticleLayout({
   isRssFeed = false,
   previousPathname,
 }) {
-  let router = useRouter()
+  let router = useRouter();
 
   if (isRssFeed) {
-    return children
+    return children;
   }
 
   return (
     <>
       <Head>
         <title>{`${meta.title} - Robbie Wagner`}</title>
+        <meta
+          content={`${meta.title} - Robbie Wagner`}
+          name="og:title"
+          key="ogTitle"
+        />
+        <meta
+          content={`${meta.title} - Robbie Wagner`}
+          name="twitter:title"
+          key="twitterTitle"
+        />
         <meta name="description" content={meta.description} />
+        <meta
+          content={meta.description}
+          name="og:description"
+          key="ogDescription"
+        />
+        <meta
+          content={meta.description}
+          name="twitter:description"
+          key="twitterDescription"
+        />
       </Head>
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
@@ -68,5 +88,5 @@ export function ArticleLayout({
         </div>
       </Container>
     </>
-  )
+  );
 }
