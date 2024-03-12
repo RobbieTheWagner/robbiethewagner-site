@@ -26,7 +26,7 @@ JavaScript libraries.
 
 ## Table of Contents
 
-## &lt;details&gt; and &lt;summary&gt;
+## [&lt;details&gt; and &lt;summary&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
 
 Accordions have been a popular feature of web apps for decades. They have
 historically been bundled with very heavy JS and CSS to animate the opening and
@@ -82,11 +82,16 @@ details[open] summary {
   <strong>Taco Bell</strong>
 </details>
 
-## &lt;progress&gt;
+## [&lt;progress&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress)
 
-In the past, you may have used libraries like progress.js to create progress
-bars for your applications, but not anymore! Thanks to HTML's `<progress>`
-element, these libraries are now mostly obsolete.
+In the past, you may have used libraries like
+[progress.js](https://usablica.github.io/progress.js/) to create progress bars
+for your applications, but not anymore! Thanks to HTML's `<progress>` element,
+these libraries are now mostly obsolete.
+
+You will probably want to create some kind of wrapper component for your
+progress bars, so that you can style them and easily have the values be
+reactive, but that is not a requirement for the base case.
 
 {/* prettier-ignore */}
 ```html progress.html
@@ -106,7 +111,7 @@ element, these libraries are now mostly obsolete.
   <span className="ml-2">75</span>%
 </div>
 
-## &lt;meter&gt;
+## [&lt;meter&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
 
 `<meter>` is very similar to `<progress>` but has a subtly different meaning. It
 should be used when you want to display a scalar measurement within a range, for
@@ -126,7 +131,7 @@ example, disk usage.
   </meter>
 </div>
 
-## &lt;dialog&gt;
+## [&lt;dialog&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
 
 Modal dialogs are a very common thing in JavaScript applications. There are
 countless libraries for rendering modals, and most of them have tons of extra
@@ -200,7 +205,8 @@ Pretty much the only downside is, since they are browser specific, there isn't
 much you can do to have a consistent look and feel across browsers. I would
 argue this shouldn't be a big deal though. Users are used to input controls
 matching the environment they are browsing in, so if they don't match your
-application, I think that is okay.
+application, I think that is okay. Consistently working functionality is better
+than something that looks pretty, but is buggy any day of the week.
 
 ```html date-input.html
 <input type="date" />
