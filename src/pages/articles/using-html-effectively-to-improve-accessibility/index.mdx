@@ -16,9 +16,11 @@ export default (props) => <ArticleLayout meta={meta} {...props} />;
 ## Is learning HTML actually important?
 
 Y 👏 E 👏 S 👏! Too many people jump right into learning React these days
-without understanding the fundamentals of HTML, CSS, and JavaScript. It can be tempting to skip the "easy" stuff and just learn it on the job, but you are setting yourself up for failure
+without understanding the fundamentals of HTML, CSS, and JavaScript. It can be
+tempting to skip the "easy" stuff and just learn it on the job, but you are
+setting yourself up for failure.
 
-Can you tell the difference between these two input/label implementations?
+### Can you tell the difference between these two input/label implementations?
 
 <div className="not-prose mb-4 py-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
   <div>
@@ -44,7 +46,7 @@ in a real code base!) while the other uses semantic HTML to wrap the input in a
 // from ./BadReactInputFocus.jsx
 ```
 
-```html AccessibleHTMLInput.html
+```html accessible-html-input.html
 <label>
   <span class="mb-2 block">My Cool Input Label</span>
   <input class="p-2" placeholder="My cool input text" type="text" />
@@ -52,3 +54,61 @@ in a real code base!) while the other uses semantic HTML to wrap the input in a
 ```
 
 </CH.Code>
+
+### What about these buttons? Are they the same?
+
+<div className="not-prose mb-4 py-4 grid grid-cols-1 gap-8 lg:grid-cols-2">
+  <div
+    data-message="Yay, you clicked the button!"
+    className="inline-block text-center rounded bg-gray-200 p-2 text-sm text-black transition-colors hover:bg-gray-300"
+    onClick={(e) => {
+      alert(e.currentTarget?.getAttribute('data-message'));
+    }}
+    tabIndex="0"
+    role="button"
+  >
+    Click me!
+  </div>
+
+  <button
+    data-message="Yay, you clicked the button!"
+    className="inline-block rounded text-center bg-gray-200 p-2 text-sm text-black transition-colors hover:bg-gray-300"
+    onClick={(e) => {
+      alert(e.currentTarget?.getAttribute('data-message'));
+    }}
+  >
+    Click me!
+  </button>
+</div>
+
+You may have already guessed this, but these are definitely not the same. One of
+them uses a `<div>` to create a fake button and the other uses a semantic
+`<button>` element.
+
+<CH.Code>
+```html fake-buttons.html
+<div
+  data-message="Yay, you clicked the button!"
+  class="rounded bg-gray-200 p-2 text-sm text-black transition-colors hover:bg-gray-300"
+  onclick="(function(element) { alert(element.getAttribute('data-message')); })(this)"
+  tabindex="0"
+  role="button"
+>
+  Click me!
+</div>
+```
+
+```html semantic-buttons.html
+<button
+  data-message="Yay, you clicked the button!"
+  class="rounded bg-gray-200 p-2 text-sm text-black transition-colors hover:bg-gray-300"
+  onclick="(function(element) { alert(element.getAttribute('data-message')); })(this)"
+>
+  Click me!
+</button>
+```
+
+</CH.Code>
+
+This code was heavily influenced by this great
+[example on MDN](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML#ui_controls).
