@@ -5,7 +5,7 @@ export function GoodTextSemantics() {
 
       <p>This is the first section of my document.</p>
 
-      <p>I'll add another paragraph here too.</p>
+      <p>This is another paragraph.</p>
 
       <ol className="list-[auto] pl-4">
         <li>First item</li>

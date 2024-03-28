@@ -5,7 +5,7 @@ export function BadTextSemantics() {
       <br />
       This is the first section of my document.
       <br />
-      I'll add another paragraph here too.
+      This is another paragraph.
       <br />
       1. First item
       <br />
