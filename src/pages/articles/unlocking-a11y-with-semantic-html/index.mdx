@@ -1,13 +1,15 @@
 ---
   author: "Robbie Wagner"
-  date: "2024-03-12"
+  date: "2024-03-28"
   description:
     "TODO"
-  title: "a11y"
+  title: "Unlocking Web Accessibility: The Crucial Role of Semantic HTML in Inclusive Design"
 ---
 
 import { ArticleLayout } from '@/components/ArticleLayout';
 import { BadReactInputFocus } from './BadReactInputFocus';
+import { BadTextSemantics } from './BadTextSemantics';
+import { GoodTextSemantics } from './GoodTextSemantics';
 
 export const meta = frontmatter;
 
@@ -18,7 +20,11 @@ export default (props) => <ArticleLayout meta={meta} {...props} />;
 Y 👏 E 👏 S 👏! Too many people jump right into learning React these days
 without understanding the fundamentals of HTML, CSS, and JavaScript. It can be
 tempting to skip the "easy" stuff and just learn it on the job, but you are
-setting yourself up for failure.
+setting yourself up for failure. Using HTML incorrectly can lead to severe
+accessibility issues and poor user experience. Let's explore some examples and
+learn how to craft better semantic HTML.
+
+## UI Controls
 
 ### Can you tell the difference between these two input/label implementations?
 
@@ -110,5 +116,52 @@ them uses a `<div>` to create a fake button and the other uses a semantic
 
 </CH.Code>
 
-This code was heavily influenced by this great
-[example on MDN](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML#ui_controls).
+## Text Content
+
+Text content may not seem as important as UI controls, after all, won't people
+just be reading it the way you style it? Well, not necessarily. For people using
+screen readers, bad semantics can lead to a very confusing experience. Not only
+that, but your SEO will suffer if you are not using things like headings to call
+out what is important on your page.
+
+### Which of these examples is using correct semantic markup?
+
+<div class="not-prose grid gap-4 lg:grid-cols-2">
+  <div>
+    <h4>Example 1</h4>
+    <BadTextSemantics />
+   
+  </div>
+
+  <div>
+    <h4>Example 2</h4>
+    <GoodTextSemantics />
+  </div>
+</div>
+
+<CH.Code>
+```jsx BadTextSemantics.jsx
+// from ./BadTextSemantics.jsx
+```
+
+```jsx GoodTextSemantics.jsx
+// from ./GoodTextSemantics.jsx
+```
+
+</CH.Code>
+
+## Wrap-up
+
+This only scratches the surface of the true impact semantic HTML makes on the
+usability of your site for your users. As the web evolves, we are only going to
+have more and more ways to interact with it, so thoughtfully using semantic HTML
+is going to be the best way to ensure you are providing the best experience for
+_all_ users on _all_ devices.
+
+### Sources
+
+Major shout out to MDN for their great article
+[HTML: A good basis for accessibility](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML).
+A lot of the examples here were heavily influenced by it, so definitely check it
+out if you want to learn more great tips and tricks for using semantic HTML
+effectively!
