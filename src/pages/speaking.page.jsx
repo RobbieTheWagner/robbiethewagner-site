@@ -103,6 +103,20 @@ export default function Speaking() {
               cta="Listen to podcast"
             />
             <Appearance
+              href="https://www.frontendhappyhour.com/episodes/at-the-bar-with-whiskey-web-&-whatnot/"
+              title="At the bar with Whiskey Web & Whatnot"
+              description="In this crossover, with Front End Happy Hour, we explored what the future of web development might look like and the impact of AI and AR on the field."
+              event="Front End Happy Hour, March 2024"
+              cta="Listen to podcast"
+            />
+            <Appearance
+              href="https://maintainable.fm/episodes/robbie-wagner-whiskey-front-end-and-whatnot"
+              title="Robbie Wagner - Whiskey, Front-End, and Whatnot"
+              description="Chatted with Robby (with a y) on the importance of prioritizing fixing tech debt and ways to automate code quality checks."
+              event="Maintainable Software Podcast, March 2024"
+              cta="Listen to podcast"
+            />
+            <Appearance
               href="https://topenddevs.com/podcasts/javascript-jabber/episodes/unraveling-the-css-revolution-podcast-growth-tactics-and-more-jsj-600"
               title="Unraveling the CSS Revolution, Podcast Growth Tactics, and More"
               description="Had a good chat with the folks at JavaScript Jabber about podcasting tips, what's new in CSS, and various other topics."

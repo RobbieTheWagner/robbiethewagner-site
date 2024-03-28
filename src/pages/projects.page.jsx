@@ -23,6 +23,13 @@ const projects = [
     link: { href: 'https://shepherdjs.dev/', label: 'shepherdjs.dev' },
     logo: logoShepherd,
   },
+  // {
+  //   name: 'Starpod',
+  //   description:
+  //     'An Astro template for easily spinning up a podcast website.',
+  //   link: { href: 'https://wuf.plus/', label: 'wuf.plus' },
+  //   logo: logoWuf,
+  // },
   {
     name: 'Wüf',
     description:
