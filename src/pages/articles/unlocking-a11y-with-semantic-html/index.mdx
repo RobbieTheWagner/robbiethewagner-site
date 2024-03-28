@@ -26,6 +26,13 @@ learn how to craft better semantic HTML.
 
 ## UI Controls
 
+UI controls are the parts of your application the user actually interacts with.
+Think inputs, buttons, forms etc. These are arguably the most important things
+to use semantic HTML for, as you want users of all abilities to be able to
+perform actions and interact with your website. Unfortunately, developers do not
+always use semantic HTML for UI controls, and can end up falling into bad
+patterns that can make their sites unusable to some users.
+
 ### Can you tell the difference between these two input/label implementations?
 
 <div className="not-prose mb-4 py-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
@@ -36,7 +43,7 @@ learn how to craft better semantic HTML.
   <div>
     <label>
       <span className="mb-2 block">My Cool Input Label</span>
-      <input className="p-2" placeholder="My cool input text" type="text"/>
+      <input className="border p-2" placeholder="My cool input text" type="text"/>
     </label>
   </div>
 </div>
@@ -60,6 +67,12 @@ in a real code base!) while the other uses semantic HTML to wrap the input in a
 ```
 
 </CH.Code>
+
+Clearly, the good example using a `label` is better for many reasons. It does
+not require shipping extra JavaScript to focus the input on click, it tells
+screen readers what the input is, and it conveys meaning to search engines. This
+is exactly what labels were meant for, and every `input` should have a
+corresponding `label`.
 
 ### What about these buttons? Are they the same?
 
@@ -116,6 +129,11 @@ them uses a `<div>` to create a fake button and the other uses a semantic
 
 </CH.Code>
 
+Whenever possible, you should always use a `button` for things the user can
+click on to perform actions and if that action is transitioning to another page,
+it should instead be an anchor tag. As a general rule, it's better to use real
+elements instead of faking their type with `role` as well.
+
 ## Text Content
 
 Text content may not seem as important as UI controls, after all, won't people
@@ -128,13 +146,13 @@ out what is important on your page.
 
 <div class="not-prose grid gap-4 lg:grid-cols-2">
   <div>
-    <h4>Example 1</h4>
+    <h4 className="font-bold mb-2">Example 1:</h4>
     <BadTextSemantics />
    
   </div>
 
   <div>
-    <h4>Example 2</h4>
+    <h4 className="font-bold mb-2">Example 2:</h4>
     <GoodTextSemantics />
   </div>
 </div>
@@ -150,13 +168,24 @@ out what is important on your page.
 
 </CH.Code>
 
-## Wrap-up
+Both of these achieve essentially identical results to the naked eye, and
+someone who does not know about headings and paragraphs may be tempted to use
+this non-semantic approach to achieve the look they were going for. This is why
+it is important to always educate yourself on which semantic HTML elements exist
+and their use cases, to ensure you are producing the most accessible
+applications.
+
+## Wrapping up
 
 This only scratches the surface of the true impact semantic HTML makes on the
 usability of your site for your users. As the web evolves, we are only going to
 have more and more ways to interact with it, so thoughtfully using semantic HTML
 is going to be the best way to ensure you are providing the best experience for
 _all_ users on _all_ devices.
+
+Anything major I missed covering or just want to reach out and geek out about
+HTML? Hit me up on Twitter!
+[@RobbieTheWagner](https://twitter.com/RobbieTheWagner).
 
 ### Sources
 

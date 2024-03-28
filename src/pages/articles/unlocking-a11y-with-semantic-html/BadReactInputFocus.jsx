@@ -13,7 +13,7 @@ export function BadReactInputFocus() {
         My Cool Input Label
       </div>
       <input
-        className="p-2"
+        className="border p-2"
         placeholder="My cool input text"
         ref={inputRef}
         type="text"
