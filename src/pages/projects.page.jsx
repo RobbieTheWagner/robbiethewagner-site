@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
 import logoShepherd from '@/images/logos/shepherd.svg';
+import logoStarpod from '@/images/logos/starpod.svg';
 import logoSwach from '@/images/logos/swach.svg';
 import logoWuf from '@/images/logos/wuf.svg';
 
@@ -23,13 +24,13 @@ const projects = [
     link: { href: 'https://shepherdjs.dev/', label: 'shepherdjs.dev' },
     logo: logoShepherd,
   },
-  // {
-  //   name: 'Starpod',
-  //   description:
-  //     'An Astro template for easily spinning up a podcast website.',
-  //   link: { href: 'https://wuf.plus/', label: 'wuf.plus' },
-  //   logo: logoWuf,
-  // },
+  {
+    name: 'Starpod',
+    description:
+      'An Astro template for easily spinning up a podcast website.',
+    link: { href: 'https://starpod.dev/', label: 'starpod.dev' },
+    logo: logoStarpod,
+  },
   {
     name: 'Wüf',
     description:

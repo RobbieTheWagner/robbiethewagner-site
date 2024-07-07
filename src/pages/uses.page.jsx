@@ -117,13 +117,15 @@ export default function Uses() {
             </Tool>
 
             <Tool
-              href="https://www.amazon.com/Audient-EVO-USB-Audio-Interface/dp/B0B279PYDR/ref=sr_1_2?&_encoding=UTF8&tag=robbiethewagn-20&linkCode=ur2&linkId=30d0d8129e56762105427849c5790aa1&camp=1789&creative=9325"
-              title="Audient EVO 16 USB Audio Interface"
+              href="https://rode.com/en-us/interfaces-and-mixers/rodecaster-series/rodecaster-duo"
+              title="RØDECaster Duo"
             >
-              I bought this after accidentally breaking my Rodecaster, as I was
-              looking for something with less physical buttons and more software
-              configuration. It gets the job done and sounds good, but not as
-              good as the Rodecaster, in my opinion.
+              RØDE is the gold standard in podcast equipment and the RØDECaster
+              Duo is no exception. After previously using the RØDECaster Pro, I
+              switched to the RØDECaster Duo to have something with a smaller
+              footprint on my desk and updated audio processing capabilities. It
+              also has a built in preamp, which is great, so I do not need to
+              use a CloudLifter with my microphone anymore.
             </Tool>
 
             <Tool href="https://opalcamera.com/" title="Opal C1 4k Webcam">
