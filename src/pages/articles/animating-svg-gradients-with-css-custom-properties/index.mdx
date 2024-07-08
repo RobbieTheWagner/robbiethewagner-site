@@ -1,0 +1,62 @@
+---
+  author: "Robbie Wagner"
+  date: "2024-07-08"
+  description:
+    "TODO"
+  title: "Animating SVG Gradient Background Colors With CSS Custom Properties"
+---
+
+import { ArticleLayout } from '@/components/ArticleLayout';
+
+export const meta = frontmatter;
+
+export default (props) => <ArticleLayout meta={meta} {...props} />;
+
+## Changing SVG colors is easy right?
+
+I certainly thought it should be and in the past it has not been too difficult,
+with things like changing the `stroke` or `fill` of the SVG on hover, but what
+about when we want to hover a solid colored SVG icon and have it change to a
+gradient? This proved to be much more difficult and led me down several
+different paths trying to get it to work.
+
+## Table of Contents
+
+## Setting `stroke` and `fill` on hover
+
+My first naive attempt was to treat the gradient like any other color and try to
+set `stroke` and `fill` to the gradient on hover.
+
+```html stroke-fill-svg.html
+<!-- TODO -->
+```
+
+## Using `<linearGradient>` in the SVG code
+
+After the naive approach did not work, I did some research and found a
+[Stack Overflow Post]() that recommended using `<linearGradient>` directly in
+the SVG code and applying it as the `stroke` and `fill` on hover.
+
+```html linear-gradient-svg.html
+<!-- TODO -->
+```
+
+This ultimately did work, but it seemed to be impossible to use transitions to
+have the colors gradually change, which led to a less than desirable jarring
+color swap.
+
+## Using `@property` for the gradient colors
+
+After almost deciding to settle and just accept that I would not be able to fade
+the colors in and out nicely, I stumbled upon
+[this post](https://dev.to/afif/we-can-finally-animate-css-gradient-kdk) which
+inspired the solution utilizing CSS custom properties.
+
+```html css-custom-properties-svg.html
+<!-- TODO -->
+```
+
+## Wrapping up
+
+TODO Is there a better way to do this that I didn't try? Hit me up on Twitter
+and let me know! [@RobbieTheWagner](https://twitter.com/RobbieTheWagner).
