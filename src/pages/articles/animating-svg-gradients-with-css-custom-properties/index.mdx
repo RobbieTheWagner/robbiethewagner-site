@@ -1,0 +1,399 @@
+---
+  author: "Robbie Wagner"
+  date: "2024-07-08"
+  description:
+    "Changing SVG colors is easy right? I certainly thought it should be and in 
+    the past it has not been too difficult, with things like changing the stroke 
+    or fill of the SVG on hover, but what about when we want to hover a solid 
+    colored SVG icon and have it change to a gradient? This proved to be much 
+    more difficult..."
+  title: "Animating SVG Gradient Background Colors With CSS Custom Properties"
+---
+
+import { ArticleLayout } from '@/components/ArticleLayout';
+
+export const meta = frontmatter;
+
+export default (props) => <ArticleLayout meta={meta} {...props} />;
+
+## Changing SVG colors is easy right?
+
+I certainly thought it should be and in the past it has not been too difficult,
+with things like changing the `stroke` or `fill` of the SVG on hover, but what
+about when we want to hover a solid colored SVG icon and have it change to a
+gradient? This proved to be much more difficult and led me down several
+different paths trying to get it to work.
+
+## Table of Contents
+
+## Setting `stroke` and `fill` on hover
+
+My first thought was to treat the gradient like any other color and try to set
+`stroke` and `fill` to the gradient on hover. This did not seem to be a thing
+that was possible, however, so I needed to keep looking.
+
+## Using `<linearGradient>` in the SVG code
+
+After the naive approach did not work, I did some research and found a
+[Stack Overflow Post](https://stackoverflow.com/questions/14051351/svg-gradient-using-css)
+that recommended using `<linearGradient>` directly in the SVG code and applying
+it as the `stroke` and `fill` on hover. **Note: this example uses Tailwind
+pretty heavily.**
+
+<CH.Code rows={25}>
+
+```html linear-gradient-svg.html
+<button
+  type="button"
+  class="group relative rounded-full focus:outline-none"
+  aria-label="Fast-forward 10 seconds"
+>
+  <svg
+    class="h-10 w-10"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      class="group-hover:stroke-[url(#paint0_linear_201_22852)] dark:group-hover:stroke-[url(#paint0_linear_201_20128)]"
+      d="M9 10L9 15"
+      stroke="#9DA3AF"
+      stroke-width="1.5"
+      stroke-linecap="square"
+    />
+    <path
+      class="group-hover:stroke-[url(#paint1_linear_201_22852)] dark:group-hover:stroke-[url(#paint1_linear_201_20128)]"
+      d="M13.75 10H13.25C12.5596 10 12 10.5596 12 11.25V13.75C12 14.4404 12.5596 15 13.25 15H13.75C14.4404 15 15 14.4404 15 13.75V11.25C15 10.5596 14.4404 10 13.75 10Z"
+      stroke="#9DA3AF"
+      stroke-width="1.5"
+    />
+    <path
+      class="group-hover:fill-[url(#paint2_linear_201_22852)] dark:group-hover:fill-[url(#paint2_linear_201_20128)]"
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M3.25 12C3.25 7.16751 7.16751 3.25 12 3.25C14.2529 3.25 16.3063 4.10071 17.8578 5.5H15.5V7H20.25V2.25H18.75V4.28624C16.9474 2.70773 14.5852 1.75 12 1.75C6.33908 1.75 1.75 6.33908 1.75 12C1.75 17.6609 6.33908 22.25 12 22.25C17.6609 22.25 22.25 17.6609 22.25 12C22.25 10.7394 22.0221 9.5305 21.6047 8.41329L20.2105 8.96769C20.5593 9.91159 20.75 10.9328 20.75 12C20.75 16.8325 16.8325 20.75 12 20.75C7.16751 20.75 3.25 16.8325 3.25 12Z"
+      fill="#9DA3AF"
+    />
+    <defs>
+      {/* Light */}
+      <linearGradient
+        id="paint0_linear_201_22852"
+        x1="9.5"
+        y1="10"
+        x2="9.5"
+        y2="15"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#BBA4FF" />
+        <stop offset="1" stop-color="#9D7BFF" />
+      </linearGradient>
+      <linearGradient
+        id="paint1_linear_201_22852"
+        x1="13.5"
+        y1="10"
+        x2="13.5"
+        y2="15"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#BBA4FF" />
+        <stop offset="1" stop-color="#9D7BFF" />
+      </linearGradient>
+      <linearGradient
+        id="paint2_linear_201_22852"
+        x1="12"
+        y1="1.75"
+        x2="12"
+        y2="22.25"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#C0ABFF" />
+        <stop offset="1" stop-color="#9571FF" />
+      </linearGradient>
+
+      {/* Dark */}
+      <linearGradient
+        id="paint0_linear_201_20128"
+        x1="9.5"
+        y1="10"
+        x2="9.5"
+        y2="15"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#A3E8FE" />
+        <stop offset="1" stop-color="#4ECDF6" />
+      </linearGradient>
+      <linearGradient
+        id="paint1_linear_201_20128"
+        x1="13.5"
+        y1="10"
+        x2="13.5"
+        y2="15"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#A3E8FE" />
+        <stop offset="1" stop-color="#4ECDF6" />
+      </linearGradient>
+      <linearGradient
+        id="paint2_linear_201_20128"
+        x1="12"
+        y1="1.75"
+        x2="12"
+        y2="22.25"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#9DE6FE" />
+        <stop offset="1" stop-color="#4ACBF5" />
+      </linearGradient>
+    </defs>
+  </svg>
+</button>
+```
+
+</CH.Code>
+
+### Example
+
+<div className="not-prose">
+  <p className="mb-2">Hover me:</p>
+
+  <button
+    type="button"
+    className="group relative rounded-full focus:outline-none"
+    aria-label="Fast-forward 10 seconds"
+  >
+    <svg
+      className="h-10 w-10"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        className="group-hover:stroke-[url(#paint0_linear_201_22852)] dark:group-hover:stroke-[url(#paint0_linear_201_20128)]"
+        d="M9 10L9 15"
+        stroke="#9DA3AF"
+        strokeWidth="1.5"
+        strokeLinecap="square"
+      />
+      <path
+        className="group-hover:stroke-[url(#paint1_linear_201_22852)] dark:group-hover:stroke-[url(#paint1_linear_201_20128)]"
+        d="M13.75 10H13.25C12.5596 10 12 10.5596 12 11.25V13.75C12 14.4404 12.5596 15 13.25 15H13.75C14.4404 15 15 14.4404 15 13.75V11.25C15 10.5596 14.4404 10 13.75 10Z"
+        stroke="#9DA3AF"
+        strokeWidth="1.5"
+      />
+      <path
+        className="group-hover:fill-[url(#paint2_linear_201_22852)] dark:group-hover:fill-[url(#paint2_linear_201_20128)]"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M3.25 12C3.25 7.16751 7.16751 3.25 12 3.25C14.2529 3.25 16.3063 4.10071 17.8578 5.5H15.5V7H20.25V2.25H18.75V4.28624C16.9474 2.70773 14.5852 1.75 12 1.75C6.33908 1.75 1.75 6.33908 1.75 12C1.75 17.6609 6.33908 22.25 12 22.25C17.6609 22.25 22.25 17.6609 22.25 12C22.25 10.7394 22.0221 9.5305 21.6047 8.41329L20.2105 8.96769C20.5593 9.91159 20.75 10.9328 20.75 12C20.75 16.8325 16.8325 20.75 12 20.75C7.16751 20.75 3.25 16.8325 3.25 12Z"
+        fill="#9DA3AF"
+      />
+      <defs>
+        {/* Light */}
+        <linearGradient
+          id="paint0_linear_201_22852"
+          x1="9.5"
+          y1="10"
+          x2="9.5"
+          y2="15"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#BBA4FF" />
+          <stop offset="1" stopColor="#9D7BFF" />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_201_22852"
+          x1="13.5"
+          y1="10"
+          x2="13.5"
+          y2="15"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#BBA4FF" />
+          <stop offset="1" stopColor="#9D7BFF" />
+        </linearGradient>
+        <linearGradient
+          id="paint2_linear_201_22852"
+          x1="12"
+          y1="1.75"
+          x2="12"
+          y2="22.25"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#C0ABFF" />
+          <stop offset="1" stopColor="#9571FF" />
+        </linearGradient>
+
+        {/* Dark */}
+        <linearGradient
+          id="paint0_linear_201_20128"
+          x1="9.5"
+          y1="10"
+          x2="9.5"
+          y2="15"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#A3E8FE" />
+          <stop offset="1" stopColor="#4ECDF6" />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_201_20128"
+          x1="13.5"
+          y1="10"
+          x2="13.5"
+          y2="15"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#A3E8FE" />
+          <stop offset="1" stopColor="#4ECDF6" />
+        </linearGradient>
+        <linearGradient
+          id="paint2_linear_201_20128"
+          x1="12"
+          y1="1.75"
+          x2="12"
+          y2="22.25"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#9DE6FE" />
+          <stop offset="1" stopColor="#4ACBF5" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+  </button>
+</div>
+
+This ultimately did work, but it seemed to be impossible to use transitions to
+have the colors gradually change, which led to a less than desirable jarring
+color swap.
+
+## Using `@property` for the gradient colors
+
+After almost deciding to settle and just accept that I would not be able to fade
+the colors in and out nicely, I remembered
+[mask-image](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image) and,
+after some searching, stumbled upon
+[this post](https://dev.to/afif/we-can-finally-animate-css-gradient-kdk) which
+inspired the solution utilizing CSS custom properties.
+
+<CH.Code rows={25}>
+
+```css gradient-icon.css
+@property --gradient-start {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: oklch(67.65% 0.043 285.21);
+}
+
+@property --gradient-stop {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: oklch(67.65% 0.043 285.21);
+}
+
+@media (prefers-color-scheme: dark) {
+  @property --gradient-start {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: oklch(71.44% 0.019 264.45);
+  }
+
+  @property --gradient-stop {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: oklch(71.44% 0.019 264.45);
+  }
+}
+
+.gradient-icon {
+  background: linear-gradient(
+    180deg,
+    var(--gradient-start) 0%,
+    var(--gradient-stop) 100%
+  );
+  transition:
+    --gradient-start 0.5s,
+    --gradient-stop 0.5s;
+}
+
+.gradient-icon:hover {
+  --gradient-start: oklch(77.32% 0.129 294.81);
+  --gradient-stop: oklch(67.59% 0.18851878808119876 292.4954219580293);
+  @media (prefers-color-scheme: dark) {
+    --gradient-start: oklch(88.52% 0.079 220.53);
+    --gradient-stop: oklch(78.86% 0.125 223.67);
+  }
+}
+```
+
+```html forward-button.html
+<button
+  type="button"
+  class="gradient-icon relative h-10 w-10 rounded-full focus:outline-none"
+  aria-label="Fast-forward 10 seconds"
+  style="mask-image: url(/images/forward-icon.svg)"
+>
+  <div class="absolute -inset-4 -left-2 md:hidden" />
+</button>
+```
+
+```html forward-icon.svg
+<svg
+  width="40"
+  height="40"
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M9 10L9 15"
+    stroke="#000000"
+    stroke-width="1.5"
+    stroke-linecap="square"
+  />
+  <path
+    d="M13.75 10H13.25C12.5596 10 12 10.5596 12 11.25V13.75C12 14.4404 12.5596 15 13.25 15H13.75C14.4404 15 15 14.4404 15 13.75V11.25C15 10.5596 14.4404 10 13.75 10Z"
+    stroke="#000000"
+    stroke-width="1.5"
+  />
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M3.25 12C3.25 7.16751 7.16751 3.25 12 3.25C14.2529 3.25 16.3063 4.10071 17.8578 5.5H15.5V7H20.25V2.25H18.75V4.28624C16.9474 2.70773 14.5852 1.75 12 1.75C6.33908 1.75 1.75 6.33908 1.75 12C1.75 17.6609 6.33908 22.25 12 22.25C17.6609 22.25 22.25 17.6609 22.25 12C22.25 10.7394 22.0221 9.5305 21.6047 8.41329L20.2105 8.96769C20.5593 9.91159 20.75 10.9328 20.75 12C20.75 16.8325 16.8325 20.75 12 20.75C7.16751 20.75 3.25 16.8325 3.25 12Z"
+    fill="#000000"
+  />
+</svg>
+```
+
+</CH.Code>
+
+### Example
+
+<div className="not-prose">
+  <p className="mb-2">Hover me:</p>
+  <button
+    type="button"
+    className="gradient-icon relative h-10 w-10 rounded-full focus:outline-none"
+    aria-label="Fast-forward 10 seconds"
+    style={{ maskImage: 'url(/images/forward-icon.svg)' }}
+  >
+    <div className="absolute -inset-4 -left-2 md:hidden" />
+  </button>
+</div>
+
+We now have a nice fading in/out transition from a solid color to a gradient.
+This is accomplished using `@property` and setting our initial start/stop colors
+for the gradient to a solid color, and then swapping out those variables for new
+start/stop colors on hover.
+
+## Wrapping up
+
+I was surprised to learn there was not an easier solution built into CSS, but
+perhaps there will be one day. It seems like this is a lot of work to accomplish
+what feels like it should be simpler. Is there a better way to do this that I
+didn't try? Hit me up on Twitter and let me know!
+[@RobbieTheWagner](https://twitter.com/RobbieTheWagner).

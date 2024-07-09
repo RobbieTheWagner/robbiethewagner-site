@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 
 import '@/styles/tailwind.css';
+import '@/styles/gradient-icon.css';
 import '@code-hike/mdx/dist/index.css';
 import 'focus-visible';
 
