@@ -128,10 +128,22 @@ export default function Uses() {
               use a CloudLifter with my microphone anymore.
             </Tool>
 
-            <Tool href="https://opalcamera.com/" title="Opal C1 4k Webcam">
-              If you don’t want to spend thousands of dollars on a super fancy
-              camera, but still want to get video results that look like you
-              did, look no further than the Opal C1!
+            <Tool
+              href="https://www.amazon.com/gp/product/B07N8J3XN9/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1"
+              title="Sony a7 III"
+            >
+              This is a good option for a camera because it is renewed and not
+              quite as expensive as a brand new one, but is still a super
+              amazing camera, in my opinion.
+            </Tool>
+
+            <Tool
+              href="https://www.amazon.com/gp/product/B07B9VNL8H/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1"
+              title="Sigma 35mm F1.4 Art DG HSM"
+            >
+              I don’t know a lot about camera lenses, but this one has worked
+              great for me. I use it a couple feet away from where I sit, and it
+              looks great and has some really nice background blur.
             </Tool>
           </ToolsSection>
 
