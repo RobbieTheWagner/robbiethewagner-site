@@ -115,7 +115,7 @@ export default function About() {
               </SocialLink>
 
               <SocialLink
-                href="https://linkedin.com/in/robertwilliamwagner"
+                href="https://linkedin.com/in/RobbieTheWagner"
                 icon={LinkedInIcon}
                 className="mt-4"
               >

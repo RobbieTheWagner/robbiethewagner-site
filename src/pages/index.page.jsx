@@ -235,7 +235,7 @@ function Photos() {
             key={image.src}
             className={clsx(
               'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length]
+              rotations[imageIndex % rotations.length],
             )}
           >
             <Image
@@ -289,7 +289,7 @@ export default function Home({ articles }) {
             />
 
             <SocialLink
-              href="https://linkedin.com/in/robertwilliamwagner"
+              href="https://linkedin.com/in/RobbieTheWagner"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
