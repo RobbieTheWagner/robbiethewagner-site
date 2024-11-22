@@ -37,10 +37,19 @@ export default function Speaking() {
       </Head>
       <SimpleLayout
         title="I’ve spoken at events all around the world and been interviewed for many podcasts."
-        intro="One of my favorite ways to share my ideas is live on stage, where there’s so much more communication bandwidth than there is in writing, and I love podcast interviews because they give me the opportunity to answer questions instead of just present my opinions."
+        intro="I love the energy of sharing ideas, sparking conversations, and connecting with diverse audiences—whether it’s on stage at a conference or diving into great discussions on a podcast."
       >
         <div className="space-y-20">
           <SpeakingSection title="Conferences">
+            <Appearance
+              href=""
+              title="Whiskey Web and Whatnot Live at All Things Open"
+              description={`
+              We changed up our format and did "Wine Web and Whatnot" with a slew of distinguished guests, who are kind of a big deal.
+              `}
+              event="All Things Open 2024"
+              cta="Watch videos"
+            />
             <Appearance
               href="https://www.youtube.com/playlist?list=PL7uiIY_6TPL9tTNI2uUFVRyUGTMzSgXkz"
               title="Whiskey Web and Whatnot Live at THAT Conference"
@@ -49,7 +58,7 @@ export default function Speaking() {
               and Kevin Whinnery about all things web development.
               `}
               event="THAT Conference Texas 2024"
-              cta="Watch video"
+              cta="Watch videos"
             />
             <Appearance
               href="https://www.youtube.com/watch?v=sf9NUrPVNyU"
@@ -100,6 +109,13 @@ export default function Speaking() {
               of developers and their hobbies outside of work.
               `}
               event="Whiskey Web and Whatnot"
+              cta="Listen to podcast"
+            />
+            <Appearance
+              href="https://changelog.com/friends/68"
+              title="Wine Web and a whole lot of Whatnot"
+              description="We joined up with The Changelog podcast live from the hallway track at All Things Open 2024. Topics include: Chianti, content creation, open source, fake jobs, cancel culture, Silicon Valley (ding), frontend frustrations, the Roman empire & more."
+              event="Changelog and Friends, October 2024"
               cta="Listen to podcast"
             />
             <Appearance
