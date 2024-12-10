@@ -161,6 +161,17 @@ export default function Speaking() {
               cta="Listen to podcast"
             />
           </SpeakingSection>
+          <SpeakingSection title="Other">
+            <Appearance
+              href="https://www.youtube.com/watch?v=ICpQQxD8vc4"
+              title="Building an e-commerce app in 4 hours"
+              description={`
+              We had four hours to build a web app using Mailchimp to create incentives for brand loyalty for Blvck Spades.
+              `}
+              event="Web Dev Challenge S1E9"
+              cta="Watch video"
+            />
+          </SpeakingSection>
         </div>
       </SimpleLayout>
     </>

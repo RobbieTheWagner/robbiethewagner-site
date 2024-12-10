@@ -1,0 +1,204 @@
+---
+  author: "Robbie Wagner"
+  date: "2024-12-09"
+  description:
+    "What are the best tools for web developers in 2025? I did a post on this a couple years ago laying out my top developer tools for 2023, and I wanted to circle back and give a couple updates. Honestly, not a lot has changed since then, but enough has that I..."
+  title: "Top 5 Web Developer Tools for 2025"
+---
+
+import Image from 'next/image';
+
+import { ArticleLayout } from '@/components/ArticleLayout';
+
+import arcCommandPalette from './img/arc-command-palette.png';
+import arcImg from './img/arc.png';
+import githubDesktop from './img/github-desktop.png';
+import githubPR from './img/github-desktop-pr.png';
+import kaleidoscope from './img/kaleidoscope.jpg';
+import vscode from './img/vscode.png';
+import warpAI from './img/warp-ai.webp';
+import warpBlocks from './img/warp-blocks.webp';
+import warpDriveNotebook from './img/warp-drive-notebook.webp';
+
+export const meta = frontmatter;
+
+export default (props) => <ArticleLayout meta={meta} {...props} />;
+
+## What are the best tools for web developers in 2025?
+
+I did a post on this a couple years ago laying out my
+[top developer tools for 2023](https://robbiethewagner.dev/articles/top-five-web-developer-tools),
+and I wanted to circle back and give a couple updates. Honestly, not a lot has
+changed since then, but enough has that I thought it warranted posting about.
+
+Let's jump right into it, here are my top devloper tools for 2025:
+
+## 1. [Warp](https://www.warp.dev/)
+
+Warp used to tout itself as "The terminal for the 21st century", but they have
+blown right past that and are now shipping 22nd century level features. Warp has
+quickly become my number one tool I could not develop without.
+
+Starting with the basic features, which are already game changing, Warp has
+reimagined how your output is displayed. Instead of a huge wall of text, your
+commands and their output are grouped into blocks. This allows you to easily
+navigate through them, and share them with your team for easier debugging. Warp
+also has great autocomplete and remembers commands you have run previously.
+
+<a href="https://www.warp.dev/warp-ai">
+  <Image
+    src={warpBlocks}
+    alt="Screenshot of Warp showing a command that was run and its output colocated in one block."
+  />
+</a>
+
+Moving on to the even more impressive features, Warp has squeezed every last
+ounce of goodness out of its AI integrations. You can use natural language to
+search for commands and ask Warp's AI how to use them. Never again will you ask
+"what was that command again?".
+
+<a href="https://www.warp.dev/warp-ai">
+  <Image
+    src={warpAI}
+    alt="Screenshot of Warp AI explaining how to use grep to do regex based searches."
+  />
+</a>
+
+Where Warp really shines is when you collaborate with your team. How many times
+have your onboarding docs been outdated or spread across a bunch of different
+files with outdated setup steps that usually don't work? Warp Drive has
+notebooks that allow you to combine code blocks and documentation in one place
+that lives next to your command line and syncs in real-time.
+
+<a href="https://www.warp.dev/warp-drive">
+  <Image
+    src={warpDriveNotebook}
+    alt="Screenshot of a Warp Drive notebook showing documentation and a list of commands."
+  />
+</a>
+
+If you are looking for the best terminal to use today, look no further. Warp is
+the gold standard and is just getting better and better.
+
+_Curious about Warp's origin story? Check out our
+[podcast episode with Warp's founder, Zach Lloyd](https://www.whiskey.fm/prioritizing-performance-and-the-future-of-the-terminal-with-zach-lloyd/)._
+
+## 2. [VSCode Insiders](https://code.visualstudio.com/insiders/)
+
+<a href="https://code.visualstudio.com/insiders/">
+  <Image
+    src={vscode}
+    alt="Screenshot of VSCode Insiders editing this very blog post!"
+  />
+</a>
+
+These days it is almost required to use VSCode or something based on VSCode if
+you want to be a web developer. There are just too many VSCode plugins you would
+lose access to that would put you at a significant disadvantage if you used
+something else. This was the case for me and when the Ember community, and all
+of the Ember specific plugins moved to VSCode, I did as well.
+
+Awhile back I decided to make the jump to VSCode Insiders. For the most part,
+they are not that different, but the insiders version has a new version daily
+and allows you to try all the cool new things that haven't quite made it to
+VSCode stable yet.
+
+If you do not have restrictions on what AI tools you can use, you may also want
+to check out [Cursor](https://www.cursor.com/) which is based on VSCode and adds
+a lot of AI goodness on top of it.
+
+## 3. [Arc](https://thebrowser.company/)
+
+<a href="https://thebrowser.company/">
+  <Image
+    src={arcImg}
+    alt="Screenshot of Arc showing GitHub open, some tabs on the left and a favorites bar"
+  />
+</a>
+
+Arc is a really cool browser that has really changed the game and pushed the
+boundaries of what a browser can do. In a sea of identical Chromium clones, Arc
+really rose above the rest with their thoughtful and innovative feature set.
+
+I still think one of the best features of Arc is their reimagination of tabs.
+Moving the tabs to the left side, introducing spaces to organize them, and
+defaulting to auto closing them is a game changer for tab hoarders like me.
+
+Arc also has great keyboard support, with a command palette-like interface when
+you press `CMD + T`. This maps to your existing muscle memory of opening a new
+tab, but allows you to perform multiple different actions, instead of just
+opening a tab.
+
+<a href="https://thebrowser.company/">
+  <Image
+    src={arcCommandPalette}
+    alt="Screenshot of Arc showing the command palette."
+  />
+</a>
+
+Since my original post, Arc has added a ton of stuff, unsurprisingly leveraging
+AI to the max. You can now use Perplexity as your search engine, see summaries
+of pages before navigating to them, and get a beefed up `CMD + F` command to ask
+questions in addition to finding text.
+
+There are many other features and quality-of-life improvements baked into Arc,
+so give it a try for yourself and see what you think!
+
+## 4. [GitHub Desktop](https://desktop.github.com/)
+
+<a href="https://desktop.github.com/">
+  <Image
+    src={githubDesktop}
+    alt="Screenshot of GitHub Desktop showing history and file changes"
+  />
+</a>
+
+GitHub Desktop continues to be my go-to tool for quickly pushing code, opening
+pull requests, and interacting with GitHub repos in general. It is certainly not
+the flashiest or the most feature rich of the git GUIs that exist, but it is the
+most straightforward to use and gets out of your way so you can just ship code.
+
+One of my favorite things is having a button to open a new pull request from my
+branch. It takes out the unnecessary step of needing to push, then open GitHub
+and create a PR. It seems like a small thing, but I find it incredibly useful.
+
+<a href="https://desktop.github.com/">
+  <Image
+    src={githubPR}
+    alt="Screenshot of GitHub Desktop showing the create pull request button"
+  />
+</a>
+
+If you don't find joy in super complex GUIs or learning the ins and outs of all
+the manual git CLI commands, you should really give GitHub Desktop a shot. Trust
+me, you'll like it.
+
+## 5. [Kaleidoscope](https://kaleidoscope.app/)
+
+<a href="https://kaleidoscope.app/">
+  <Image
+    src={kaleidoscope}
+    alt="Screenshot of Kaleidoscope showing a diff of two versions of a file and combining them into one merged file."
+  />
+</a>
+
+I don't always use a diff tool, but when I do, I use Kaleidoscope. I have found
+most other diff and merge tools to be too complex and require a deep
+understanding of how git works just to use them. This has trolled me many times
+and I have lost work I meant to keep.
+
+Kaleidoscope keeps it simple, and has a beautiful user interface that makes
+resolving conflicts a breeze. It allows you to view what changed over a time
+period, compare branches, and comb through the entire history of your files.
+
+I have not even begun to scratch the surface of all the features Kaleidoscope
+has, but I still think it is worth it just for the basic diff and merge
+functionality. Give it a try, you will not be disappointed!
+
+## Wrap-up
+
+In my opinion, these are the top 5 web developer tools you should be checking
+out in 2025 to streamline your workflow. Did your favorite developer tool make
+the list? If there is something cool you think I missed, let me know on Twitter
+([@RobbieTheWagner](https://twitter.com/RobbieTheWagner)) or Bluesky
+([@robbiethewagner.dev](https://bsky.app/profile/robbiethewagner.dev))!
