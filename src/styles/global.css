@@ -44,6 +44,3 @@
     @apply transition-colors duration-300;
   }
 }
-
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
