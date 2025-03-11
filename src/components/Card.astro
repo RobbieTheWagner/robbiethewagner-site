@@ -1,0 +1,39 @@
+---
+interface Props {
+  /**
+   * Additional CSS classes to apply to the card
+   */
+  class?: string;
+  
+  /**
+   * Whether the card should have hover effects (for interactive cards)
+   */
+  interactive?: boolean;
+  
+  /**
+   * Optional href to make the entire card a link
+   */
+  href?: string;
+}
+
+const { class: className, interactive = false, href } = Astro.props;
+
+// Combine the base styles with conditional and custom classes
+const baseStyles = "rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-700 dark:bg-zinc-800";
+const hoverStyles = interactive ? "transition-all duration-200 hover:border-zinc-300 hover:shadow-md dark:hover:border-zinc-600" : "";
+const combinedClasses = [baseStyles, hoverStyles, className].filter(Boolean).join(" ");
+
+// Determine which element to render based on whether it's a link or not
+const Element = href ? "a" : "div";
+---
+
+<Element href={href} class={combinedClasses}>
+  <div class="space-y-4">
+    <slot />
+  </div>
+</Element>
+
+<style>
+  /* Add any component-specific styles here if needed */
+</style>
+

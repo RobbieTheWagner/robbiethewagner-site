@@ -1,11 +1,12 @@
-const plugin = require('tailwindcss/plugin');
+import plugin from 'tailwindcss/plugin';
+import typography from '@tailwindcss/typography';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ['./src/**/*.{js,jsx,mdx}'],
+export default {
+  content: ['./src/**/*.{js,jsx,mdx,astro}'],
   darkMode: 'class',
   plugins: [
-    require('@tailwindcss/typography'),
+    typography,
     plugin(function ({ addVariant }) {
       addVariant('progress-unfilled', ['&::-webkit-progress-bar', '&']);
       addVariant('progress-filled', [
@@ -313,3 +314,4 @@ module.exports = {
     }),
   },
 };
+

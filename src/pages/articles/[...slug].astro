@@ -1,0 +1,115 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { formatDate } from '../../lib/formatDate';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  
+  // Sort articles by date for prev/next navigation
+  articles.sort((a, b) => {
+    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+  });
+
+  return articles.map((article, index) => {
+    // Determine previous and next articles for navigation
+    const prevArticle = articles[index - 1];
+    const nextArticle = articles[index + 1];
+
+    return {
+      params: { slug: article.slug },
+      props: { 
+        article,
+        prevArticle: prevArticle ? {
+          title: prevArticle.data.title,
+          slug: prevArticle.slug
+        } : null,
+        nextArticle: nextArticle ? {
+          title: nextArticle.data.title,
+          slug: nextArticle.slug
+        } : null
+      }
+    };
+  });
+}
+
+// Get the current article data from props
+const { article, prevArticle, nextArticle } = Astro.props;
+
+// If no article is found, handle 404 (Astro will handle this automatically)
+if (!article) {
+  return Astro.redirect('/404');
+}
+
+// Render the article content
+const { Content } = await article.render();
+---
+
+<ArticleLayout
+  title={article.data.title}
+  date={formatDate(article.data.date)}
+  description={article.data.description}
+  author={article.data.author}
+>
+  <div class="prose dark:prose-invert max-w-none">
+    <Content />
+  </div>
+  
+  {/* Article Navigation */}
+  <div class="mt-16 border-t border-gray-200 dark:border-gray-800 pt-8 flex justify-between">
+    {prevArticle && (
+      <a 
+        href={`/articles/${prevArticle.slug}`} 
+        class="group flex items-center gap-x-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="20" 
+          height="20" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          class="feather feather-arrow-left"
+        >
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span class="group-hover:underline">
+          {prevArticle.title}
+        </span>
+      </a>
+    )}
+
+    <div class="flex-1"></div>
+    
+    {nextArticle && (
+      <a 
+        href={`/articles/${nextArticle.slug}`} 
+        class="group flex items-center gap-x-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+      >
+        <span class="group-hover:underline">
+          {nextArticle.title}
+        </span>
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="20" 
+          height="20" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          class="feather feather-arrow-right"
+        >
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    )}
+  </div>
+</ArticleLayout>
+

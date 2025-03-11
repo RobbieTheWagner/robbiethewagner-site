@@ -1,28 +1,76 @@
 import { Feed } from 'feed';
+import { mkdir, writeFile } from 'fs/promises';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { marked } from 'marked';
-import { mkdir, writeFile } from 'node:fs/promises';
 
-export async function generateRssFeed({ sortedArticles, siteUrl, siteTitle, siteDescription, author }) {
+// Define types
+interface Author {
+  name: string;
+  email: string;
+}
+
+interface FeedOptions {
+  title: string;
+  description: string;
+  author: Author;
+  id: string;
+  link: string;
+  image: string;
+  favicon: string;
+  copyright: string;
+  feedLinks: {
+    rss2: string;
+    json: string;
+  };
+}
+
+/**
+ * Generates RSS feed for the site in XML and JSON formats
+ * @returns {Promise<void>}
+ */
+export async function generateRssFeed(): Promise<void> {
+  console.log('📢 Starting RSS feed generation...');
   try {
-    const feedOptions = {
-      title: siteTitle,
-      description: siteDescription,
+    // Get all articles from the content collection
+    console.log('🔍 Fetching articles from content collection...');
+    const articles: CollectionEntry<'articles'>[] = await getCollection('articles');
+    
+    // Sort articles by date in descending order (newest first)
+    const sortedArticles = articles.sort(
+      (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+    );
+    console.log(`✅ Fetched ${sortedArticles.length} articles`);
+    
+    const siteUrl: string = import.meta.env.SITE;
+    if (!siteUrl) {
+      throw new Error('SITE environment variable is not defined.');
+    }
+    
+    // Define the author
+    const author: Author = {
+      name: 'Robbie Wagner',
+      email: 'rwwagner90@gmail.com',
+    };
+    
+    // Define feed options
+    const feedOptions: FeedOptions = {
+      title: author.name,
+      description: 'My thoughtful ramblings about Ember.js, Nuxt.js, JavaScript, life, liberty and the pursuit of happiness.',
+      author,
       id: siteUrl,
       link: siteUrl,
-      language: 'en',
-      image: `${siteUrl}/favicon.png`,
-      favicon: `${siteUrl}/favicon.png`,
+      image: `${siteUrl}/favicon.ico`,
+      favicon: `${siteUrl}/favicon.ico`,
       copyright: `All rights reserved ${new Date().getFullYear()}`,
       feedLinks: {
         rss2: `${siteUrl}/rss/feed.xml`,
         json: `${siteUrl}/rss/feed.json`,
       },
-      author: author
     };
     
     const feed = new Feed(feedOptions);
 
-    console.log('\U0001F4DD Adding articles to feed...');
+    console.log('📝 Adding articles to feed...');
     let processedCount = 0;
     
     for (const article of sortedArticles) {
@@ -83,12 +131,13 @@ export async function generateRssFeed({ sortedArticles, siteUrl, siteTitle, site
       ]);
       
       console.log('🎉 RSS feed generation completed successfully!');
-    } catch (fileError) {
+    } catch (fileError: any) {
       console.error('❌ Error writing feed files:', fileError);
       throw new Error(`Failed to write feed files: ${fileError.message}`);
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('❌ RSS feed generation failed:', error);
     throw error; // Re-throw to allow calling code to handle the error
   }
 }
+

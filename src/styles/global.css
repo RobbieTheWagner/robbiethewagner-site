@@ -1,0 +1,49 @@
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-slate-900 dark:bg-slate-900 dark:text-white transition-colors duration-300;
+  }
+
+  /* Default focus styles */
+  :focus-visible {
+    @apply outline-blue-500 outline-2 outline-offset-2;
+  }
+
+  /* Heading styles */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .prose-custom {
+    @apply prose prose-slate dark:prose-invert prose-a:text-blue-600 dark:prose-a:text-blue-400 
+           prose-headings:scroll-mt-28 prose-img:rounded-lg prose-img:mx-auto
+           max-w-none;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  .transition-theme {
+    @apply transition-colors duration-300;
+  }
+}
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";

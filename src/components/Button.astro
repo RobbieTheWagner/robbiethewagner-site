@@ -1,0 +1,83 @@
+---
+// Props interface with TypeScript types
+interface Props {
+  variant?: 'primary' | 'secondary';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  class?: string;
+  ariaLabel?: string;
+  target?: string;
+  rel?: string;
+}
+
+// Default values and prop destructuring
+const {
+  variant = 'primary',
+  href,
+  type = 'button',
+  disabled = false,
+  class: className = '',
+  ariaLabel,
+  target,
+  rel,
+  ...rest
+} = Astro.props;
+
+// Determine if this should be a link or button
+const isLink = !!href && !disabled;
+
+// Base styles shared between all buttons
+const baseStyles = 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 focus:ring-sky-500';
+
+// Size styles
+const sizeStyles = 'px-4 py-2 text-sm';
+
+// Variant-specific styles
+const variantStyles = {
+  primary: 'bg-sky-600 text-white hover:bg-sky-700 dark:bg-sky-700 dark:hover:bg-sky-800',
+  secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600'
+};
+
+// Disabled styles
+const disabledStyles = 'opacity-50 cursor-not-allowed';
+
+// Combine all styles based on props
+const buttonStyles = [
+  baseStyles,
+  sizeStyles,
+  variantStyles[variant],
+  disabled ? disabledStyles : '',
+  className
+].join(' ');
+
+// Handle relationship attributes for external links
+const externalLinkAttrs = (target === '_blank') 
+  ? { rel: rel || 'noopener noreferrer' } 
+  : {};
+---
+
+{isLink ? (
+  <a 
+    href={href}
+    class={buttonStyles}
+    aria-label={ariaLabel}
+    target={target}
+    {...externalLinkAttrs}
+    {...rest}
+  >
+    <slot />
+  </a>
+) : (
+  <button 
+    type={type}
+    class={buttonStyles}
+    disabled={disabled}
+    aria-label={ariaLabel}
+    aria-disabled={disabled}
+    {...rest}
+  >
+    <slot />
+  </button>
+)}
+
