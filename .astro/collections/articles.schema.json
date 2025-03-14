@@ -10,23 +10,7 @@
         "description": {
           "type": "string"
         },
-        "publishDate": {
-          "anyOf": [
-            {
-              "type": "string",
-              "format": "date-time"
-            },
-            {
-              "type": "string",
-              "format": "date"
-            },
-            {
-              "type": "integer",
-              "format": "unix-time"
-            }
-          ]
-        },
-        "updatedDate": {
+        "date": {
           "anyOf": [
             {
               "type": "string",
@@ -44,34 +28,7 @@
         },
         "author": {
           "type": "string",
-          "default": "Samuel Braithwaite"
-        },
-        "image": {
-          "type": "object",
-          "properties": {
-            "src": {
-              "type": "string"
-            },
-            "alt": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "src",
-            "alt"
-          ],
-          "additionalProperties": false
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "default": []
-        },
-        "draft": {
-          "type": "boolean",
-          "default": false
+          "default": "Robbie Wagner"
         },
         "$schema": {
           "type": "string"
@@ -80,7 +37,7 @@
       "required": [
         "title",
         "description",
-        "publishDate"
+        "date"
       ],
       "additionalProperties": false
     }

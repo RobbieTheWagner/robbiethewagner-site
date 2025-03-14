@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
-import Card from '../components/Card.astro';
+import Card from '../components/Card/Card.astro';
 import Container from '../components/Container.astro';
 import {
   GitHubIcon,
@@ -20,12 +20,11 @@ import image3 from '../images/photos/image-3.jpg';
 import image4 from '../images/photos/image-4.jpg';
 import image5 from '../images/photos/image-5.jpg';
 import { formatDate } from '../lib/formatDate';
-import { getAllArticles } from '../lib/getAllArticles';
+import { getCollection } from 'astro:content';
 
-// Get articles data
-const articles = (await getAllArticles())
-  .slice(0, 4)
-  .map(({ component, ...meta }) => meta);
+const articles = await getCollection('articles');
+
+console.log(articles);
 
 // Resume data
 const resume = [
@@ -84,7 +83,7 @@ const title =
   <meta name="description" content={description} slot="head" />
 
   <!-- Main content -->
-  <Container className="mt-9">
+  <Container class="mt-9">
     <div class="max-w-2xl">
       <h1
         class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
@@ -154,7 +153,7 @@ const title =
   </div>
 
   <!-- Articles and Resume Section -->
-  <Container className="mt-24 md:mt-28">
+  <Container class="mt-24 md:mt-28">
     <div
       class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2"
     >

@@ -1,0 +1,17 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<div class="card-link">
+  <div class="card-link-bg"></div>
+  <a href={href}>
+    <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
+    <span class="relative z-10">
+      <slot />
+    </span>
+  </a>
+</div> 

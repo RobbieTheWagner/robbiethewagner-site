@@ -1,1 +1,9 @@
-export default new Map();
+
+export default new Map([
+["src/articles/animating-svg-gradients-with-css-custom-properties/index.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Farticles%2Fanimating-svg-gradients-with-css-custom-properties%2Findex.mdx&astroContentModuleFlag=true")],
+["src/articles/five-html-elements-that-make-javascript-libraries-obsolete/index.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Farticles%2Ffive-html-elements-that-make-javascript-libraries-obsolete%2Findex.mdx&astroContentModuleFlag=true")],
+["src/articles/top-five-web-developer-tools/index.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Farticles%2Ftop-five-web-developer-tools%2Findex.mdx&astroContentModuleFlag=true")],
+["src/articles/top-five-javascript-podcasts/index.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Farticles%2Ftop-five-javascript-podcasts%2Findex.mdx&astroContentModuleFlag=true")],
+["src/articles/unlocking-a11y-with-semantic-html/index.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Farticles%2Funlocking-a11y-with-semantic-html%2Findex.mdx&astroContentModuleFlag=true")],
+["src/articles/top-five-web-developer-tools-2025/index.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Farticles%2Ftop-five-web-developer-tools-2025%2Findex.mdx&astroContentModuleFlag=true")]]);
+		

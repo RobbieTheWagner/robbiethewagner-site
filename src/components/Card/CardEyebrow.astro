@@ -1,0 +1,13 @@
+---
+interface Props {
+  as?: string;
+  decorate?: boolean;
+  class?: string;
+}
+
+const { as: Element = 'p', decorate = false, class: className } = Astro.props;
+---
+
+<Element class:list={['card-eyebrow', { decorated: decorate }, className]}>
+  <slot />
+</Element> 
