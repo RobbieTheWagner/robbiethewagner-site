@@ -89,11 +89,11 @@ export default function About() {
               </p>
 
               <p>
-                Today, I work at ART19, an Amazon company, slinging EmberJS and
-                building the next generation of podcast hosting tools. I also
-                cohost Whiskey Web and Whatnot with Charles William Carpenter
-                III and sometimes create videos and blog posts about the tech
-                topic du jour.
+                Today, I work at HashiCorp, an IBM company, slinging EmberJS and
+                building UIs to help streamline working with complex
+                infrastructure. I also cohost Whiskey Web and Whatnot with
+                Charles William Carpenter III and sometimes create videos and
+                blog posts about the tech topic du jour.
               </p>
             </div>
           </div>

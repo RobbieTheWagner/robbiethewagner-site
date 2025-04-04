@@ -252,9 +252,9 @@ function Photos() {
 }
 
 export default function Home({ articles }) {
-  const description = `I’m Robbie Wagner, and I currently sling JavaScript for Amazon. I
-  previously slung JavaScript for Apple and Netflix as well, and hope to
-  complete my FAANG tour one day.`;
+  const description = `I’m Robbie Wagner, and I currently sling JavaScript for HashiCorp. I
+  previously slung JavaScript for Amazon, Apple, and Netflix as well, and hope to
+  complete my MANAMANA tour one day.`;
 
   return (
     <>
