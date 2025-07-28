@@ -81,7 +81,7 @@ corresponding `label`.
 <div className="not-prose mb-4 py-4 grid grid-cols-1 gap-8 lg:grid-cols-2">
   <div
     data-message="Yay, you clicked the button!"
-    className="inline-block text-center rounded bg-gray-200 p-2 text-sm text-black transition-colors hover:bg-gray-300"
+    className="inline-block text-center rounded-sm bg-gray-200 p-2 text-sm text-black transition-colors hover:bg-gray-300"
     onClick={(e) => {
       alert(e.currentTarget?.getAttribute('data-message'));
     }}
@@ -93,7 +93,7 @@ corresponding `label`.
 
   <button
     data-message="Yay, you clicked the button!"
-    className="inline-block rounded text-center bg-gray-200 p-2 text-sm text-black transition-colors hover:bg-gray-300"
+    className="inline-block rounded-sm text-center bg-gray-200 p-2 text-sm text-black transition-colors hover:bg-gray-300"
     onClick={(e) => {
       alert(e.currentTarget?.getAttribute('data-message'));
     }}
@@ -110,7 +110,7 @@ them uses a `<div>` to create a fake button and the other uses a semantic
 ```html fake-buttons.html
 <div
   data-message="Yay, you clicked the button!"
-  class="rounded bg-gray-200 p-2 text-sm text-black transition-colors hover:bg-gray-300"
+  class="rounded-sm bg-gray-200 p-2 text-sm text-black transition-colors hover:bg-gray-300"
   onclick="(function(element) { alert(element.getAttribute('data-message')); })(this)"
   tabindex="0"
   role="button"
@@ -122,7 +122,7 @@ them uses a `<div>` to create a fake button and the other uses a semantic
 ```html semantic-buttons.html
 <button
   data-message="Yay, you clicked the button!"
-  class="rounded bg-gray-200 p-2 text-sm text-black transition-colors hover:bg-gray-300"
+  class="rounded-sm bg-gray-200 p-2 text-sm text-black transition-colors hover:bg-gray-300"
   onclick="(function(element) { alert(element.getAttribute('data-message')); })(this)"
 >
   Click me!
