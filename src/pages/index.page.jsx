@@ -13,6 +13,7 @@ import {
 } from '@/components/SocialIcons';
 import logoAmazon from '@/images/logos/amazon.svg';
 import logoApple from '@/images/logos/apple.svg';
+import logoHashicorp from '@/images/logos/hashicorp.svg';
 import logoNetflix from '@/images/logos/netflix.svg';
 import logoShipShape from '@/images/logos/ship-shape.svg';
 import image1 from '@/images/photos/image-1.jpg';
@@ -137,15 +138,22 @@ function Newsletter() {
 
 function Resume() {
   let resume = [
+        {
+      company: 'HashiCorp',
+      title: 'Staff Engineer',
+      logo: logoHashicorp,
+      start: '2025',
+      end: {
+        label: 'Present',
+        dateTime: new Date().getFullYear(),
+      },
+    },
     {
       company: 'Amazon',
       title: 'Senior Software Engineer',
       logo: logoAmazon,
       start: '2023',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear(),
-      },
+      end: '2025',
     },
     {
       company: 'Apple',
