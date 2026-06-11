@@ -1,7 +1,13 @@
 ---
 const { title } = Astro.props;
 
-const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+const normalizedTitle = typeof title === 'string' ? title : '';
+const id =
+  normalizedTitle
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || 'section';
 ---
 
 <section
