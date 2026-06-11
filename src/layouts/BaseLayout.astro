@@ -1,0 +1,98 @@
+---
+import { ClientRouter } from 'astro:transitions';
+
+import Analytics from '@vercel/analytics/astro';
+
+import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
+
+import '@/styles/tailwind.css';
+import '@/styles/gradient-icon.css';
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html class="h-full antialiased" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <slot name="head" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href={new URL('/rss/feed.xml', Astro.site)}
+    />
+    <link
+      rel="alternate"
+      type="application/feed+json"
+      href={new URL('/rss/feed.json', Astro.site)}
+    />
+    <ClientRouter />
+    <script is:inline>
+      let darkModeMediaQuery = window.matchMedia(
+        '(prefers-color-scheme: dark)',
+      );
+
+      updateMode();
+      darkModeMediaQuery.addEventListener(
+        'change',
+        updateModeWithoutTransitions,
+      );
+      window.addEventListener('storage', updateModeWithoutTransitions);
+      // The client router swaps in the new page's <html> attributes, which
+      // drops the `dark` class — re-apply it before the new page paints.
+      document.addEventListener('astro:after-swap', updateMode);
+
+      function updateMode() {
+        let isSystemDarkMode = darkModeMediaQuery.matches;
+        let isDarkMode =
+          window.localStorage.isDarkMode === 'true' ||
+          (!('isDarkMode' in window.localStorage) && isSystemDarkMode);
+
+        if (isDarkMode) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+
+        if (isDarkMode === isSystemDarkMode) {
+          delete window.localStorage.isDarkMode;
+        }
+      }
+
+      function disableTransitionsTemporarily() {
+        document.documentElement.classList.add('**:transition-none!');
+        window.setTimeout(() => {
+          document.documentElement.classList.remove('**:transition-none!');
+        }, 0);
+      }
+
+      function updateModeWithoutTransitions() {
+        disableTransitionsTemporarily();
+        updateMode();
+      }
+    </script>
+  </head>
+  <body class="flex h-full flex-col bg-zinc-50 dark:bg-black">
+    <div class="fixed inset-0 flex justify-center sm:px-8">
+      <div class="flex w-full max-w-7xl lg:px-8">
+        <div
+          class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"
+        >
+        </div>
+      </div>
+    </div>
+    <div class="relative">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <Analytics />
+  </body>
+</html>

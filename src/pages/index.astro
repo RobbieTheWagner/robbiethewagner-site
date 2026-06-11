@@ -1,0 +1,242 @@
+---
+import { Image } from 'astro:assets';
+
+import Card from '@/components/Card.astro';
+import CardCta from '@/components/CardCta.astro';
+import CardDescription from '@/components/CardDescription.astro';
+import CardEyebrow from '@/components/CardEyebrow.astro';
+import CardTitle from '@/components/CardTitle.astro';
+import Container from '@/components/Container.astro';
+import GitHubIcon from '@/components/icons/GitHubIcon.astro';
+import LinkedInIcon from '@/components/icons/LinkedInIcon.astro';
+import TwitterIcon from '@/components/icons/TwitterIcon.astro';
+import logoAmazon from '@/images/logos/amazon.svg';
+import logoApple from '@/images/logos/apple.svg';
+import logoHashicorp from '@/images/logos/hashicorp.svg';
+import logoNetflix from '@/images/logos/netflix.svg';
+import logoShipShape from '@/images/logos/ship-shape.svg';
+import image1 from '@/images/photos/image-1.jpg';
+import image2 from '@/images/photos/image-2.jpg';
+import image3 from '@/images/photos/image-3.jpg';
+import image4 from '@/images/photos/image-4.jpg';
+import image5 from '@/images/photos/image-5.jpg';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { formatDate } from '@/lib/formatDate';
+import { getAllArticles } from '@/lib/getAllArticles';
+
+const description = `I’m Robbie Wagner, and I currently sling JavaScript for HashiCorp. I
+previously slung JavaScript for Amazon, Apple, and Netflix as well, and hope to
+complete my MANAMANA tour one day.`;
+
+const articles = (await getAllArticles()).slice(0, 4);
+
+const socialLinks = [
+  {
+    href: 'https://twitter.com/RobbieTheWagner',
+    ariaLabel: 'Follow on Twitter',
+    icon: TwitterIcon,
+  },
+  {
+    href: 'https://github.com/RobbieTheWagner',
+    ariaLabel: 'Follow on GitHub',
+    icon: GitHubIcon,
+  },
+  {
+    href: 'https://linkedin.com/in/RobbieTheWagner',
+    ariaLabel: 'Follow on LinkedIn',
+    icon: LinkedInIcon,
+  },
+];
+
+const resume = [
+  {
+    company: 'HashiCorp',
+    title: 'Staff Engineer',
+    logo: logoHashicorp,
+    start: '2025',
+    end: {
+      label: 'Present',
+      dateTime: String(new Date().getFullYear()),
+    },
+  },
+  {
+    company: 'Amazon',
+    title: 'Senior Software Engineer',
+    logo: logoAmazon,
+    start: '2023',
+    end: '2025',
+  },
+  {
+    company: 'Apple',
+    title: 'Lead Software Engineer',
+    logo: logoApple,
+    start: '2022',
+    end: '2023',
+  },
+  {
+    company: 'Netflix',
+    title: 'Senior Front End Developer',
+    logo: logoNetflix,
+    start: '2018',
+    end: '2019',
+  },
+  {
+    company: 'Ship Shape',
+    title: 'Partner',
+    logo: logoShipShape,
+    start: '2017',
+    end: '2023',
+  },
+];
+
+const photos = [image1, image2, image3, image4, image5];
+const rotations = [
+  'rotate-2',
+  '-rotate-2',
+  'rotate-2',
+  'rotate-2',
+  '-rotate-2',
+];
+---
+
+<BaseLayout
+  title="Robbie Wagner - EmberJS and Tailwind fanboy, podcaster, and content creator"
+  description={description}
+>
+  <Container class="mt-9">
+    <div class="max-w-2xl">
+      <h1
+        class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+      >
+        EmberJS and Tailwind fanboy, podcaster, and content creator.
+      </h1>
+
+      <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+        {description}
+      </p>
+
+      <div class="mt-6 flex gap-6">
+        {
+          socialLinks.map((link) => (
+            <a
+              class="group -m-1 p-1"
+              href={link.href}
+              aria-label={link.ariaLabel}
+            >
+              <link.icon class="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+  <div class="mt-16 sm:mt-20">
+    <div class="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
+      {
+        photos.map((image, imageIndex) => (
+          <div
+            class:list={[
+              'relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl dark:bg-zinc-800',
+              rotations[imageIndex % rotations.length],
+            ]}
+          >
+            <Image
+              src={image}
+              alt=""
+              widths={[176, 288, 576]}
+              sizes="(min-width: 640px) 18rem, 11rem"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <Container class="mt-24 md:mt-28">
+    <div
+      class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2"
+    >
+      <div class="flex flex-col gap-16">
+        {
+          articles.map((article) => (
+            <Card as="article">
+              <CardTitle href={`/articles/${article.id}`}>
+                {article.data.title}
+              </CardTitle>
+              <CardEyebrow as="time" datetime={article.data.date} decorate>
+                {formatDate(article.data.date)}
+              </CardEyebrow>
+              <CardDescription>{article.data.description}</CardDescription>
+              <CardCta>Read article</CardCta>
+            </Card>
+          ))
+        }
+      </div>
+
+      <div class="space-y-10 lg:pl-16 xl:pl-24">
+        <div
+          class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
+        >
+          <h2
+            class="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              class="h-6 w-6 flex-none"
+            >
+              <path
+                d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
+                class="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
+              ></path>
+              <path
+                d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
+                class="stroke-zinc-400 dark:stroke-zinc-500"></path>
+            </svg>
+            <span class="ml-3">Work</span>
+          </h2>
+          <ol class="mt-6 space-y-4">
+            {
+              resume.map((role) => (
+                <li class="flex gap-4">
+                  <div class="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                    <Image src={role.logo} alt="" class="h-7 w-7" />
+                  </div>
+                  <dl class="flex flex-auto flex-wrap gap-x-2">
+                    <dt class="sr-only">Company</dt>
+                    <dd class="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                      {role.company}
+                    </dd>
+                    <dt class="sr-only">Role</dt>
+                    <dd class="text-xs text-zinc-500 dark:text-zinc-400">
+                      {role.title}
+                    </dd>
+                    <dt class="sr-only">Date</dt>
+                    <dd
+                      class="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                      aria-label={`${role.start.label ?? role.start} until ${
+                        role.end.label ?? role.end
+                      }`}
+                    >
+                      <time datetime={role.start.dateTime ?? role.start}>
+                        {role.start.label ?? role.start}
+                      </time>{' '}
+                      <span aria-hidden="true">—</span>{' '}
+                      <time datetime={role.end.dateTime ?? role.end}>
+                        {role.end.label ?? role.end}
+                      </time>
+                    </dd>
+                  </dl>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </div>
+    </div>
+  </Container>
+</BaseLayout>
