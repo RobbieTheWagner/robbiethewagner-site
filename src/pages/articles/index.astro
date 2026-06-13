@@ -1,0 +1,57 @@
+---
+import Card from '@/components/Card.astro';
+import CardCta from '@/components/CardCta.astro';
+import CardDescription from '@/components/CardDescription.astro';
+import CardEyebrow from '@/components/CardEyebrow.astro';
+import CardTitle from '@/components/CardTitle.astro';
+import SimpleLayout from '@/components/SimpleLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { formatDate } from '@/lib/formatDate';
+import { getAllArticles } from '@/lib/getAllArticles';
+
+const description =
+  'All of my long-form thoughts on web development, podcasting, life experiences, and more, collected in chronological order.';
+const title =
+  'My thoughtful ramblings about Ember.js, Nuxt.js, JavaScript, life, liberty and the pursuit of happiness.';
+
+const articles = await getAllArticles();
+---
+
+<BaseLayout title="Articles - Robbie Wagner" description={description}>
+  <SimpleLayout title={title} intro={description}>
+    <div
+      class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40"
+    >
+      <div class="flex max-w-3xl flex-col space-y-16">
+        {
+          articles.map((article) => (
+            <article class="md:grid md:grid-cols-4 md:items-baseline">
+              <Card class="md:col-span-3">
+                <CardTitle href={`/articles/${article.id}`}>
+                  {article.data.title}
+                </CardTitle>
+                <CardEyebrow
+                  as="time"
+                  datetime={article.data.date}
+                  class="md:hidden"
+                  decorate
+                >
+                  {formatDate(article.data.date)}
+                </CardEyebrow>
+                <CardDescription>{article.data.description}</CardDescription>
+                <CardCta>Read article</CardCta>
+              </Card>
+              <CardEyebrow
+                as="time"
+                datetime={article.data.date}
+                class="mt-1 hidden md:block"
+              >
+                {formatDate(article.data.date)}
+              </CardEyebrow>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </SimpleLayout>
+</BaseLayout>

@@ -1,0 +1,19 @@
+<dialog
+  id="demo-modal-dialog"
+  class="fixed top-1/2 left-1/2 -mt-24 -ml-32 h-48 w-64 transform p-8"
+>
+  <button
+    autofocus
+    class="rounded bg-slate-200 px-4 py-2 text-gray-900 transition-colors hover:bg-slate-400"
+    onclick="document.getElementById('demo-modal-dialog').close()"
+  >
+    Close
+  </button>
+  <p>Hello, I am a modal dialog!</p>
+</dialog>
+<button
+  class="rounded bg-slate-200 px-4 py-2 text-gray-900 transition-colors hover:bg-slate-400"
+  onclick="document.getElementById('demo-modal-dialog').showModal()"
+>
+  Show the dialog
+</button>

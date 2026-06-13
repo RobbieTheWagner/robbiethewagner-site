@@ -1,42 +1,47 @@
-# Spotlight
+# robbiethewagner.dev
 
-Spotlight is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+Personal site of Robbie Wagner, built with [Astro](https://astro.build) and
+[Tailwind CSS](https://tailwindcss.com), based on the Spotlight
+[Tailwind UI](https://tailwindui.com) template.
 
 ## Getting started
 
-To get started with this template, first install the npm dependencies:
+Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
-Next, create a `.env.local` file in the root of your project and set the `NEXT_PUBLIC_SITE_URL` variable to your site's public URL:
-
-```
-NEXT_PUBLIC_SITE_URL=https://example.com
-```
-
-Next, run the development server:
+Run the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
-Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
+Then open [http://localhost:4321](http://localhost:4321) in your browser to
+view the website.
 
-## Customizing
+## Building
 
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
+```bash
+pnpm build
+pnpm preview
+```
+
+The site is fully static — pages are rendered at build time and the only
+client-side JavaScript is a few small vanilla scripts (dark mode toggle,
+mobile navigation, header scroll effects, and article demos).
+
+Articles live in `src/content/articles` as Markdown/MDX content collections.
+RSS feeds are generated at `/rss/feed.xml` and `/rss/feed.json`.
 
 ## License
 
-This site template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license).
+This site is based on a commercial Tailwind UI template, licensed under the
+[Tailwind UI license](https://tailwindui.com/license).
 
 ## Learn more
 
-To learn more about the technologies used in this site template, see the following resources:
-
+- [Astro](https://docs.astro.build) - the official Astro documentation
 - [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
-- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
-- [Headless UI](https://headlessui.dev) - the official Headless UI documentation
 - [MDX](https://mdxjs.com) - the MDX documentation

@@ -1,5 +1,13 @@
-module.exports = {
+export default {
   proseWrap: 'always',
   singleQuote: true,
-  plugins: ['prettier-plugin-tailwindcss'],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+  overrides: [
+    {
+      files: '*.astro',
+      options: {
+        parser: 'astro',
+      },
+    },
+  ],
 };
